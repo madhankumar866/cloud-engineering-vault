@@ -1,0 +1,18 @@
+{
+	"nodes":[
+		{"id":"node-control-plane","type":"text","text":"# 🧠 EKS Control Plane\n*(Managed fully by AWS)*\nThis is the brain of your Kubernetes cluster. You don't have to manage or patch these servers.","x":-250,"y":-400,"width":500,"height":140,"color":"3"},
+		{"id":"node-api-server","type":"text","text":"**API Server**\nThe gateway. All `kubectl` commands and internal components talk to this.","x":-400,"y":-150,"width":250,"height":100},
+		{"id":"node-etcd","type":"text","text":"**etcd**\nThe highly-available database. Stores the cluster's entire state and secrets.","x":150,"y":-150,"width":250,"height":100},
+		{"id":"node-worker-nodes","type":"text","text":"# ⚙️ Worker Nodes (Data Plane)\n*(Managed by You or Fargate)*\nThese are the actual EC2 instances where your application containers run.","x":-250,"y":100,"width":500,"height":140,"color":"4"},
+		{"id":"node-kubelet","type":"text","text":"**Kubelet**\nThe \"captain\" of the node. Makes sure containers are running and healthy.","x":-400,"y":350,"width":250,"height":100},
+		{"id":"node-pods","type":"text","text":"**Pods**\nYour actual application containers running inside the node.","x":150,"y":350,"width":250,"height":100},
+		{"id":"node-tip","type":"text","text":"> [!tip] Canvas Tip\n> You can double-click this whiteboard to add a card, or drag markdown files from your left sidebar right into this space!","x":500,"y":-150,"width":300,"height":150,"color":"6"}
+	],
+	"edges":[
+		{"id":"edge-1","fromNode":"node-control-plane","fromSide":"bottom","toNode":"node-api-server","toSide":"top"},
+		{"id":"edge-2","fromNode":"node-control-plane","fromSide":"bottom","toNode":"node-etcd","toSide":"top"},
+		{"id":"edge-3","fromNode":"node-api-server","fromSide":"bottom","toNode":"node-worker-nodes","toSide":"top"},
+		{"id":"edge-4","fromNode":"node-worker-nodes","fromSide":"bottom","toNode":"node-kubelet","toSide":"top"},
+		{"id":"edge-5","fromNode":"node-worker-nodes","fromSide":"bottom","toNode":"node-pods","toSide":"top"}
+	]
+}

@@ -1,0 +1,14 @@
+filters:
+  and:
+    - file.inFolder("Knowledge Base")
+    - file.ext == "md"
+views:
+  - type: table
+    name: Study Dashboard
+    groupBy:
+      property: status
+      direction: ASC
+    order:
+      - file.name
+      - status
+      - tags

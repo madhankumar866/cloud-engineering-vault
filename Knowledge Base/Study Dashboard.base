@@ -1,0 +1,19 @@
+type: board
+name: Study Dashboard
+version: "1.1"
+columns:
+  - id: not-started
+    name: 1. Not Started
+    query: status:not-started
+  - id: in-progress
+    name: 2. In Progress
+    query: status:in-progress
+  - id: completed
+    name: 3. Completed
+    query: status:completed
+sort:
+  field: tags
+  order: asc
+views:
+  - type: table
+    name: Table
