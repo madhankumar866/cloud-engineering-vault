@@ -1,15 +1,17 @@
 # MADHAN KUMAR S
 
-**Email:** madhansaba.r@gmail.com | **Mobile:** 8667537020 | **LinkedIn:** mk-201861185 | **GitHub:** madhankumar866
+**Chennai, India (Open to remote)** | 6+ Years Experience
+
+**Email:** madhansaba.r@gmail.com | **Mobile:** 8667537020 | **LinkedIn:** linkedin.com/in/mk-201861185 | **GitHub:** madhankumar866
 
 ## PROFESSIONAL SUMMARY
 
 - **Platform Engineer | SRE** with 6+ years of experience architecting and operating high-scale AWS/EKS platforms with a focus on **FinOps**, **GitOps**.
 - Proven track record in CI/CD pipeline engineering, zero-downtime releases, and Infrastructure-as-Code implementation.
 - Specialized in building **Kubernetes Control Planes** using **Crossplane** and **Terraform**, reducing infrastructure lead times from days to minutes.
-- Proven track record of eliminating operational toil by designing **self-service infrastructure bots** and high-performance **Golang** observability tools.
-- Experience in **Service Mesh (Istio)** and advanced traffic engineering to ensure zero-downtime releases and multi-tenant isolation.
-- Strategic focus on **Cost Optimization**, leveraging Karpenter and KEDA cloud compute spend by significant margins.
+- Eliminated operational toil by designing **self-service infrastructure bots** and high-performance **Golang** observability tools.
+- Deep experience in **Service Mesh (Istio)** and advanced traffic engineering to ensure zero-downtime releases and multi-tenant isolation.
+- Strategic focus on **Cost Optimization**, using **Karpenter** and **KEDA** to cut cloud compute spend by up to **80%**.
 
 ## PROFESSIONAL EXPERIENCE
 
@@ -70,7 +72,6 @@
 - **Performance Optimization:** Improved application response times by 40% through CDN integration and optimized Helm charts, enhancing user experience
 - **Test Automation Modernization:** Reduced manual test automation effort by 100% by transitioning from Windows-based manual framework to fully automated Kubernetes-backed infrastructure on AWS EKS
 - **Scalability Enhancement:** Integrated AWS Fargate Profiles enabling infrastructure to handle 80% more test jobs during peak loads without manual intervention
-- **Multi-Account Management:** Designed Python-based EC2 fleet management system supporting seamless resource management across multiple AWS accounts
 - **Network Optimization:** Enhanced network flexibility through intelligent IP address management and API-driven infrastructure interactions
 
 **Technologies/Tools Used:**
@@ -123,20 +124,12 @@
 
 ## PROJECTS
 
-### Multi-Account EC2 Fleet Management System
-**Technologies:** Python, AWS Lambda, Boto3, API Gateway
-
-Designed a Python-based solution for seamless EC2 instance management across multiple AWS accounts. Enabled centralized EC2 management and reduced manual operational overhead.
-
-### Scalable Selenium Test Automation on AWS EKS
-**Technologies:** Kubernetes, Docker, Helm, AWS EKS, Fargate, Prometheus, Jaeger, ArgoCD
-
-Built a fully automated Selenium test automation framework on AWS EKS with dynamic scaling. Reduced manual effort by 100% and infrastructure handles 80% more test jobs during peak loads.
+- **Multi-Account EC2 Fleet Management System** (Python, AWS Lambda, Boto3, API Gateway) — Centralized EC2 management across multiple AWS accounts, cutting manual operational overhead.
+- **Scalable Selenium Test Automation on AWS EKS** (Kubernetes, Helm, Fargate, Prometheus, ArgoCD) — Fully automated, dynamically scaling test framework handling 80% more jobs at peak.
 
 ## CERTIFICATIONS
 
 - **AWS Certified Solutions Architect** | Verify via Credly
-- **Certified Argo Project Associate (CAPA)** | *Note: Expires July 11, 2026 - Renewal in progress*
 
 ## EDUCATION
 
