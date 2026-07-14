@@ -56,23 +56,25 @@
 ### DevOps / Linux Engineer
 **Genxlead Solutions Pvt Ltd** | Chennai | Aug 2019 - Feb 2024
 
-**Key Responsibilities:**
-- Architected and implemented cloud-native service decomposition (microservices and serverless) using AWS Lambda and SAM to modernize monolithic applications
-- Managed multi-cloud infrastructure deployments and maintained Infrastructure-as-Code (IaC) pipelines
-- Designed and maintained Kubernetes clusters on AWS EKS with Helm charts for container orchestration
-- Oversaw database migrations from on-premises systems to cloud platforms (Snowflake, AWS RDS)
-- Implemented CI/CD pipelines using GitOps practices with ArgoCD for automated deployments
-- Monitored and optimized application performance using CloudWatch, Prometheus, and distributed tracing tools
-- Collaborated with development teams to troubleshoot infrastructure issues and optimize resource utilization
-- Automated infrastructure provisioning and scaling using Terraform and CloudFormation
+**Key Achievement: Test Automation Modernization on AWS EKS**
+- **The Problem:** Test automation ran on a Windows-based manual framework — slow, labor-intensive, and unable to absorb peak testing loads.
+- **The Solution:** Migrated Selenium-based test automation to a fully automated, Kubernetes-backed infrastructure on AWS EKS, integrating AWS Fargate Profiles for elastic compute.
+- **The Impact:** Eliminated 100% of manual test automation effort and enabled infrastructure to handle 80% more test jobs during peak loads without manual intervention.
 
-**Achievements:**
-- **Platform Modernization:** Modernized monolithic systems using microservices and serverless patterns, improving deployment agility and reducing infrastructure costs through auto-scaling
-- **Database Transformation:** Led migration of on-premises databases to Snowflake with zero downtime, enhancing analytics capabilities and data query performance
-- **Performance Optimization:** Improved application response times by 40% through CDN integration and optimized Helm charts, enhancing user experience
-- **Test Automation Modernization:** Reduced manual test automation effort by 100% by transitioning from Windows-based manual framework to fully automated Kubernetes-backed infrastructure on AWS EKS
-- **Scalability Enhancement:** Integrated AWS Fargate Profiles enabling infrastructure to handle 80% more test jobs during peak loads without manual intervention
-- **Network Optimization:** Enhanced network flexibility through intelligent IP address management and API-driven infrastructure interactions
+**Key Achievement: Zero-Downtime Database Migration to Snowflake**
+- **The Problem:** On-premises databases constrained analytics capabilities and query performance, with no clear path to modern data infrastructure.
+- **The Solution:** Led the migration of on-premises databases to Snowflake, coordinating the cutover to avoid service interruption.
+- **The Impact:** Completed the migration with zero downtime, enhancing analytics capabilities and data query performance.
+
+**Key Responsibilities:**
+- Architected and implemented cloud-native service decomposition (microservices and serverless) using AWS Lambda and SAM, improving deployment agility and reducing infrastructure costs through auto-scaling
+- Managed multi-cloud infrastructure deployments and maintained Infrastructure-as-Code (IaC) pipelines using Terraform and CloudFormation
+- Designed and maintained Kubernetes clusters on AWS EKS with Helm charts for container orchestration
+- Implemented CI/CD pipelines using GitOps practices with ArgoCD for automated deployments
+- Improved application response times by 40% through CDN integration and optimized Helm charts
+- Monitored and optimized application performance using CloudWatch, Prometheus, and distributed tracing tools
+- Enhanced network flexibility through intelligent IP address management and API-driven infrastructure interactions
+- Collaborated with development teams to troubleshoot infrastructure issues and optimize resource utilization
 
 **Technologies/Tools Used:**
 - **Cloud Platforms:** AWS (EC2, Lambda, ECS, EKS, RDS, S3, CloudWatch, API Gateway, SAM)

@@ -1,0 +1,17 @@
+{
+	"nodes":[
+		{"id":"678d3c03a731c420","type":"text","text":"Roles","x":-124,"y":-100,"width":105,"height":50,"color":"1"},
+		{"id":"0d251d0e36351d4e","type":"text","text":"Aws Engineering","x":-71,"y":-225,"width":185,"height":55,"color":"5"},
+		{"id":"ca24ad04f241d8e9","type":"text","text":"Release Engineer","x":160,"y":-225,"width":250,"height":50,"color":"5"},
+		{"id":"f9b70c23b58190ab","type":"text","text":"SRE","x":-136,"y":-340,"width":96,"height":50,"color":"5"},
+		{"id":"b6c38944f020f4b1","type":"text","text":"Devops","x":-294,"y":-340,"width":106,"height":50,"color":"5"},
+		{"id":"299d4ced63373673","type":"text","text":"Cloud-Engineering","x":-322,"y":-225,"width":198,"height":50,"color":"5"}
+	],
+	"edges":[
+		{"id":"d8114ebcce4acf9d","fromNode":"299d4ced63373673","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"fdd0c2da2b96bbd5","fromNode":"0d251d0e36351d4e","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"b363e0e6dd818641","fromNode":"f9b70c23b58190ab","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"c13f5a9536be05e2","fromNode":"b6c38944f020f4b1","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"7b284f141ad65826","fromNode":"ca24ad04f241d8e9","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"}
+	]
+}
