@@ -3,13 +3,17 @@
 This plan is built to cover comprehensive AWS architecture, networking, EKS, and GitOps workflows. 
 
 ## 🟢 1. The Foundation: AWS Architecture & Networking
-- [ ] **Networking & VPC (Deep Dive)**
-  - [ ] [[1. VPC Deep Dive]] ([[Subnets]], [[Router & Route Tables]], [[Internet Gateway (IGW)]], [[NAT Gateway]])
+- [ ] **Networking & VPC
+  - [ ] [[1. VPC Deep Dive]] [[Subnets]], [[Router & Route Tables]], 
+  - [ ] Gateways - [[Internet Gateway (IGW)]], [[NAT Gateway]]
   - [ ] [[Security-group & NACLS]], 
-  - [ ] VPC Peering, Transit Gateway (TGW), BGP, AWS RAM
+  - [ ] [[VPC-Peering]]
+  - [ ] Transit Gateway (TGW), BGP,AWS RAM
+  - [ ] [[VPN-connections]]
+  - [ ] **VPC Flow Logs**
   - [ ] AWS Direct Connect, Hybrid DNS, Route53
   - [ ] CloudFront (CDN) & Edge Locations
-  - [ ] [[Load-balancers]] ALB vs NLB (Target groups, listener rules, cross-zone routing)
+  - [ ] Loadbalancers - [[3.ALB vs NLB]] (Target groups, listener rules, cross-zone routing)
 - [ ] **Compute & Serverless**
   - [ ] EC2 Fleet Management (Review your Python/Boto3 project)
   - [ ] AWS Lambda (Python & Golang), API Gateway (Proxy integrations, throttling, authorizers)
