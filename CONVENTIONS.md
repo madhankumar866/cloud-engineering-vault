@@ -1,7 +1,7 @@
 # Cloud Engineering Vault Conventions
 
 ## 📂 Folder Structure
-- **Knowledge Base**: Divided exclusively by high-level domain (`AWS`, `CI-CD`, `Infrastructure-as-Code`, `Kubernetes`). No deep nesting.
+- **Knowledge Base**: Divided exclusively by high-level domain (`AWS`, `CI-CD`, `Infrastructure-as-Code`, `Kubernetes`, `Agentic-AI`). No deep nesting.
 - **Templates**: Holds the master templates and taxonomy docs.
 - **_attachments**: All images and media go here to prevent vault clutter.
 - **Root**: `index.md` (Master Roadmap), `questions/` (Interview bank), `resume/` (Resume artifacts).

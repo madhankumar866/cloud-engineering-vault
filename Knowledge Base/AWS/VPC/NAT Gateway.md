@@ -2,6 +2,8 @@
 tags:
   - aws/networking
   - vpc
+  - review
+  - redo
 status: completed
 ---
 # NAT Gateway

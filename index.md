@@ -4,11 +4,12 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
 
 ## 🟢 1. The Foundation: AWS Architecture & Networking
 - [ ] **Networking & VPC (Deep Dive)**
-  - [ ] [[1. VPC Deep Dive]] (Subnets, Route Tables, IGW, NAT)
+  - [ ] [[1. VPC Deep Dive]] ([[Subnets]], [[Router & Route Tables]], [[Internet Gateway (IGW)]], [[NAT Gateway]])
+  - [ ] [[Security-group & NACLS]], 
   - [ ] VPC Peering, Transit Gateway (TGW), BGP, AWS RAM
   - [ ] AWS Direct Connect, Hybrid DNS, Route53
   - [ ] CloudFront (CDN) & Edge Locations
-  - [ ] ALB vs NLB (Target groups, listener rules, cross-zone routing)
+  - [ ] [[Load-balancers]] ALB vs NLB (Target groups, listener rules, cross-zone routing)
 - [ ] **Compute & Serverless**
   - [ ] EC2 Fleet Management (Review your Python/Boto3 project)
   - [ ] AWS Lambda (Python & Golang), API Gateway (Proxy integrations, throttling, authorizers)
@@ -66,7 +67,18 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
   - [ ] Kyverno (Kubernetes Policy as Code)
   - [ ] Snyk, SonarQube (Vulnerability Scanning in CI/CD)
 
-## 🟤 6. Programming & Scripting
+## ⚪ 6. Agentic AI & AI-Augmented Engineering
+- [ ] **Core Concepts**
+  - [ ] [[1. AI Agents Fundamentals]] (Tool use, orchestration, planner-executor pattern)
+- [ ] **LangGraph**
+  - [ ] Stateful graph workflows, cycles, checkpoints
+- [ ] **Model Context Protocol (MCP)**
+  - [ ] Client-server architecture, tools, resources, prompts — [modelcontextprotocol.io](https://modelcontextprotocol.io/docs/getting-started/intro)
+- [ ] **AI-Augmented IDP**
+  - [ ] Wrap an existing infra bot (fleet mgmt / sandbox provisioning) behind an MCP server
+  - [ ] Copilot-style release automation (design impact review, identify pipeline failure points)
+
+## 🟤 7. Programming & Scripting
 - [ ] **Python (Automation & Bots)**
   - [ ] Object-Oriented Programming (Classes, Methods)
   - [ ] Boto3 for AWS Automation
