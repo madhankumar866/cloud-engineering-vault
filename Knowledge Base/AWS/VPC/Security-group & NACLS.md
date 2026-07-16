@@ -2,64 +2,119 @@
 tags:
   - aws/networking
   - vpc
+  - review
 status: completed
 ---
 # Security Groups & NACLs
 
 ## 📖 Core Concepts
-- Both act as firewalls: they monitor traffic and allow/deny it based on a set of rules.
-- **Network ACL (NACL)** — the first firewall layer AWS provides.
-	- operate at subnet level, so it will check only what comes in and goes out.
-	- it have inbound and outbound  rule to protect.
-    - Filters traffic entering and leaving a **subnet** (it does not filter traffic *within* a subnet).
-    - **Stateless** — inbound and outbound rules must both be explicitly configured.
-    - Rules can **allow or deny** traffic.
-    - Every subnet must be associated with exactly one NACL; a single NACL can be associated with multiple subnets.
-    - Does **not** filter traffic to/from: Amazon DNS, Amazon DHCP, EC2 instance metadata, ECS task metadata endpoints, Windows license activation, Amazon Time Sync Service, and reserved IPs used by the default VPC router.
-- **Security Group** — acts as a firewall for an individual resource (EC2 instance, ENI, etc.), not the whole subnet.
-	- It protect individual resources
-	- once the request is allow, response if allowed a utomatically
-	- security group take care of the traffic between resources.
-    - **Stateful** — only the direction of the request needs to be permitted; the response is automatically allowed.
-    - Rules can **only allow** traffic — there's no  deny for security group.
-    - By default, contains an outbound rule allowing all outbound traffic (this can be removed/customized).
-    - Multiple Security Groups attached to the same resource have their rules merged.
 
-#### Rule Evaluation & Advanced Mechanics
-- NACL rules are evaluated in ascending numerical order; the first matching rule wins. The unnumbered `*` rule is the default catch-all deny and can't be deleted.
-- The default NACL ships with inbound/outbound rule `100` allowing all IPv4 traffic (`0.0.0.0/0`). IPv6 rules are only auto-added once an IPv6 CIDR block is associated with the VPC — if the default rules were already modified, the IPv6 allow-all rule won't be added automatically.
-- NACL rule changes apply immediately to every associated subnet.
-- Stateless return traffic (NACLs) typically needs the ephemeral port range `1024-65535` opened for outbound responses.
-- Security Groups can reference other security groups, including across a VPC peering connection — matching happens via the instances' private IPs. A rule referencing another SG counts as one rule regardless of that group's size; a "stale" rule is one referencing a security group that's since been deleted in a peered/shared VPC.
+### What are Security Groups and NACLs?
+AWS gives you **two layers of firewalls** in a VPC. They work together but at different levels and with different rules.
+
+> 🏢 Think of a VPC like a secure office building:
+> - The **NACL** is the **building-wide security desk** at the lobby entrance. It checks everyone entering or leaving the building (subnet) and can turn people away. It checks both directions independently — stateless.
+> - The **Security Group** is the **keycard lock on each individual office door**. It controls who can enter that specific room (EC2, RDS). Once you swipe in, you can leave freely — stateful.
+
+---
+
+### Security Group vs. NACL — Side-by-Side ⭐
+
+| | Security Group | NACL |
+|---|---|---|
+| **Scope** | Resource-level (EC2, ENI, RDS) | Subnet-level |
+| **Stateful/Stateless** | **Stateful** — responses auto-allowed | **Stateless** — must explicitly allow both directions |
+| **Allow / Deny** | **Allow only** — no deny rules | **Allow AND Deny** |
+| **Rule evaluation** | All rules evaluated together (union) | Rules evaluated in **ascending number order** — first match wins |
+| **Default behaviour** | Outbound: allow all · Inbound: deny all | Default NACL: allow all in/out |
+| **Association** | Attached to individual resources | One NACL per subnet (many subnets can share one) |
+| **When to use** | Day-to-day firewall — your primary tool | Subnet-wide blocking (e.g., deny a known bad IP range) |
+
+---
+
+### Security Group Deep Dive
+
+- **Stateful** — only the inbound direction needs to be permitted; the response is automatically allowed.
+- Rules can **only allow** traffic — there is no explicit deny.
+- By default, a new SG allows **all outbound** traffic and **denies all inbound**.
+- Multiple Security Groups attached to the same resource have their rules **merged** (union of all rules).
+- SGs can **reference other security groups** (even cross-account via RAM or cross-VPC via peering) — matching happens via private IPs. A rule referencing another SG counts as **one rule** regardless of that group's size.
+- SGs **cannot block DNS traffic** to/from the Route 53 Resolver (the VPC+2 address) — use **Route 53 Resolver DNS Firewall** for that.
+- SGs can be shared across accounts in the same AWS Organization via **AWS RAM** (except default VPC SGs, which can never be shared).
+
+---
+
+### NACL Deep Dive
+
+- **Stateless** — inbound and outbound rules must **both** be explicitly configured; return traffic is not auto-allowed.
+- Rules can **allow or deny** traffic.
+- Rules are evaluated in **ascending numerical order** — the first matching rule wins. The unnumbered `*` rule is the default catch-all **deny** and cannot be deleted.
+- The default NACL ships with rule `100` allowing all IPv4 traffic (`0.0.0.0/0`). IPv6 rules are only auto-added when an IPv6 CIDR block is associated with the VPC.
+- NACL rule changes apply **immediately** to every associated subnet.
+- Stateless return traffic typically requires the **ephemeral port range `1024–65535`** to be opened for outbound responses.
+- Does **not** filter traffic to/from: Amazon DNS, DHCP, EC2 instance metadata, ECS task metadata, Windows licence activation, Amazon Time Sync, and reserved IPs used by the default VPC router.
+
+---
+
+### Rule Evaluation — Advanced Mechanics
+
+- A **"stale" SG rule** is one that references a security group that has since been deleted in a peered or shared VPC.
 - Rules referencing a **prefix list**: a customer-managed prefix list counts against the quota as its maximum size; an AWS-managed prefix list counts as its assigned "weight."
-- Security Groups can be shared across accounts in the same AWS Organization via **AWS RAM** — except default VPC security groups, which can never be shared. The owning account must own the VPC; unsharing stops new associations, but existing ENIs keep receiving rule updates until they disassociate. Participant accounts can't re-share a security group themselves.
-- Security Groups can't block DNS traffic to/from the Route 53 Resolver (the VPC+2 address) — use **Route 53 Resolver DNS Firewall** to filter that.
-- **Path MTU Discovery (PMTUD)**: finds the largest packet size a network path supports. IPv4 returns "Destination Unreachable: Fragmentation Needed" (Type 3, Code 4) when the DF flag is set and a packet is too large; IPv6 returns an ICMPv6 "Packet Too Big" (Type 2). NACLs must allow these ICMP types for PMTUD to work, plus "Time Exceeded" (Type 11, Code 0) for `traceroute`.
+- **Path MTU Discovery (PMTUD)**: NACLs must allow ICMP Type 3, Code 4 (IPv4: "Fragmentation Needed") and ICMPv6 Type 2 ("Packet Too Big") for PMTUD to work, plus Type 11, Code 0 ("Time Exceeded") for `traceroute`.
 
-## 🧪 Scenario / Q&A
-- **Q:** When do you actually reach for a Security Group vs. a NACL?
-    - **A:** Security Groups are the default, day-to-day tool — stateful and per-resource, so you only manage one direction of traffic. NACLs are usually left at their default (allow-all) and reached for when you need a subnet-wide rule, like blocking a specific IP range for every resource in a subnet — since Security Groups can only allow, never deny.
+---
+
+### When Do You Use Each?
+
+> **Security Groups** are your default, day-to-day tool — stateful and per-resource, so you only manage one direction of traffic.
+>
+> **NACLs** are usually left at their default (allow-all) and reached for when you need a **subnet-wide rule** — like blocking a specific IP range across every resource in a subnet. Since Security Groups can only allow (never deny), NACLs are your only option for explicit denies.
+
+---
+
+### Traffic Flow: How Both Layers Work Together
+
+For traffic to reach your instance, it must be allowed by **both** layers:
+
+1. **Inbound traffic arrives** → NACL evaluates first (subnet level). If the NACL denies it, the packet is dropped immediately.
+2. **Traffic passes NACL** → Security Group evaluates next (resource level). If no SG rule allows it, the packet is dropped.
+3. **Response traffic** → SG is stateful so the response is auto-allowed. But the NACL is stateless — the outbound NACL rules must also explicitly allow the response (typically via the ephemeral port range).
+
+**Example:** If your NACL only allows port `8080` inbound, and your SG allows all ports — only port `8080` traffic reaches the instance. The NACL blocks everything else before the SG even sees it.
+
+## 📋 Summary
+
+- **Security Group** — resource-level firewall (EC2, ENI). **Stateful** — only write inbound rules; responses auto-allowed. Can only **allow**, never deny.
+- **NACL** — subnet-level firewall. **Stateless** — must write both inbound AND outbound rules explicitly. Can **allow or deny**.
+- NACL rules evaluated in **ascending number order**; first match wins. `*` is the catch-all deny at the bottom.
+- Security Groups can **reference other SGs** (cross-account via RAM, cross-VPC via peering) — counts as one rule regardless of group size.
+- NACLs must allow **ephemeral ports `1024–65535`** outbound to permit return traffic from clients.
+- One NACL per subnet; **many subnets can share one NACL**. NACL changes apply immediately.
+- Security Groups **cannot block DNS** traffic to/from the Route 53 Resolver (`VPC+2`) — use Route 53 DNS Firewall instead.
+- **Default SG**: all outbound allowed, inbound only from same SG. **Default NACL**: all inbound + outbound allowed.
+
+---
 
 ## 🔗 Connections (Zettelkasten)
 - **Part of:** [[1. VPC Deep Dive]]
-- **Relates to:** [[VPC/Subnets|Subnets]], [[VPC/Default VPC|Default VPC]]
+- **Relates to:** [[VPC/Subnets|Subnets]], [[VPC/Default VPC|Default VPC]], [[VPC/VPC Flow Logs|VPC Flow Logs]] — REJECT records in flow logs directly reflect SG/NACL decisions.
+- **Core Use Case:** An ALB in a public subnet has an SG allowing port 443 inbound. The private subnet hosting EC2 app servers has an SG allowing inbound only from the ALB's SG. The NACL on the private subnet is left at default (allow-all) but could add an explicit deny for a known bad CIDR range if needed.
 
 ## 🛠️ Study Aids
 
 ### 🧠 Mind Map
 ```mermaid
-mindmap
-  root((Security Groups and NACLs))
-    NACL
-      Subnet-level
-      Stateless
-      Allow or Deny
-      One NACL per subnet
-    Security Group
-      Resource-level
-      Stateful
-      Allow only
-      Rules merge across SGs
+flowchart LR
+    FW((SGs & NACLs))
+    FW --> SG["<b>Security Group</b><br/>Resource-level<br/>Stateful · Allow only<br/>Rules merge across SGs"]
+    FW --> NACL["<b>NACL</b><br/>Subnet-level<br/>Stateless · Allow + Deny<br/>First match wins (numbered)"]
+    FW --> DEF["<b>Defaults</b><br/>SG: deny inbound, allow outbound<br/>NACL: allow all in/out<br/>Ephemeral ports for NACL"]
+    FW --> ADV["<b>Advanced</b><br/>SG cross-ref via peering/RAM<br/>NACL: PMTUD ICMP rules<br/>DNS: use R53 DNS Firewall"]
+
+    classDef root fill:#4A90E2,stroke:#2E5C8A,color:#fff,stroke-width:2px
+    classDef node fill:#7B68EE,stroke:#5A4BA0,color:#fff
+    class FW root
+    class SG,NACL,DEF,ADV node
 ```
 
 ### 🗂️ Flashcards
@@ -457,27 +512,10 @@ The address followed by the `/32` prefix length.
 
 ---
 
-When configuring AWS network traffic, ==**Network ACLs (NACLs)** act as a subnet-level firewall==, while **Security Groups (SGs)** act as an instance-level firewall. For traffic to reach your instance, it must be allowed by _both_ layers.  ?
-
-How Your Configuration Works
-
-Since NACLs are evaluated first, any incoming traffic trying to reach a port other than `8080` will be blocked immediately at the subnet level, regardless of your Security Group settings. 
-
-Step-by-Step Traffic Flow
-
-- **Inbound Traffic:** A request reaches your subnet. The NACL evaluates it and **drops** everything except port `8080`. Only traffic targeting port `8080` makes it past this first checkpoint.
-
-- **Security Group Check:** Traffic that successfully passed the NACL reaches the Security Group. Since the SG allows all ports, it will approve the traffic.
-- **The Result:** Only port `8080` traffic reaches your instance. Ports like `22` (SSH) or `80` (HTTP) will be blocked. 
-
-
-## 📚 References
-https://medium.com/@ikpemosi.braimoh/aws-configuring-nacls-for-enhanced-network-security-77e9845267b7
 ## 📚 References
 - [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html)
 - [Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html)
 - [Default Security Group](https://docs.aws.amazon.com/vpc/latest/userguide/default-security-group.html)
-- [Creating Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/creating-security-groups.html)
 - [Working with Security Group Rules](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-security-group-rules.html)
 - [Security Group Associations](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-assoc.html)
 - [Sharing Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/security-group-sharing.html)
@@ -486,7 +524,4 @@ https://medium.com/@ikpemosi.braimoh/aws-configuring-nacls-for-enhanced-network-
 - [Default Network ACL](https://docs.aws.amazon.com/vpc/latest/userguide/default-network-acl.html)
 - [Custom Network ACL](https://docs.aws.amazon.com/vpc/latest/userguide/custom-network-acl.html)
 - [Path MTU Discovery](https://docs.aws.amazon.com/vpc/latest/userguide/path_mtu_discovery.html)
-- [Create Network ACL](https://docs.aws.amazon.com/vpc/latest/userguide/create-network-acl.html)
-- [Network ACL Associations](https://docs.aws.amazon.com/vpc/latest/userguide/network-acl-associations.html)
-- [Delete Network ACL](https://docs.aws.amazon.com/vpc/latest/userguide/delete-network-acl.html)
 - [NACL Examples](https://docs.aws.amazon.com/vpc/latest/userguide/nacl-examples.html)

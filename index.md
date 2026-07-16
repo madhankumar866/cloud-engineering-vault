@@ -3,17 +3,22 @@
 This plan is built to cover comprehensive AWS architecture, networking, EKS, and GitOps workflows. 
 
 ## 🟢 1. The Foundation: AWS Architecture & Networking
-- [ ] **Networking & VPC
-  - [ ] [[1. VPC Deep Dive]] [[Subnets]], [[Router & Route Tables]], 
-  - [ ] Gateways - [[Internet Gateway (IGW)]], [[NAT Gateway]]
-  - [ ] [[Security-group & NACLS]], 
-  - [ ] [[VPC-Peering]]
-  - [ ] Transit Gateway (TGW), BGP,AWS RAM
-  - [ ] [[VPN-connections]]
-  - [ ] **VPC Flow Logs**
-  - [ ] AWS Direct Connect, Hybrid DNS, Route53
-  - [ ] CloudFront (CDN) & Edge Locations
-  - [ ] Loadbalancers - [[3.ALB vs NLB]] (Target groups, listener rules, cross-zone routing)
+- [ ] **Networking & VPC**
+  - [ ] [[1. VPC Deep Dive]] — the isolated network container, CIDR blocks, default VPC
+  - [ ] [[VPC/Subnets|Subnets]] — public vs private, CIDR sizing, reserved addresses
+  - [ ] [[VPC/Router & Route Tables|Router & Route Tables]] — how traffic is directed inside a VPC
+  - [ ] [[VPC/Internet Gateway (IGW)|Internet Gateway (IGW)]] — door to the public internet
+  - [ ] [[VPC/NAT Gateway|NAT Gateway]] — private subnets reach internet (outbound only)
+  - [ ] [[VPC/Security-group & NACLS|Security Groups & NACLs]] — stateful vs stateless firewalls
+  - [ ] 7️⃣ [[VPC/VPC Flow Logs|VPC Flow Logs]] — visibility & auditing of network traffic
+  - [ ] [[VPC/VPC-Peering|VPC Peering]] — direct 1:1 connection between two VPCs
+  - [ ] [[2.Transit Gateway|Transit Gateway (TGW), BGP & AWS RAM]] — hub-and-spoke for many VPCs & on-prem
+  - [ ] [[VPC/VPN-connections|VPN Connections]] — secure encrypted tunnel over the internet to on-prem
+  - [ ] [[5. Route53 & Hybrid DNS|Direct Connect, Hybrid DNS & Route53]] — dedicated wire + DNS bridging across hybrid networks
+  - [ ] 1️⃣2️⃣ [[7. PrivateLink & VPC Endpoints|PrivateLink & VPC Endpoints]] — private access to AWS services without traversing the internet
+  - [ ] 1️⃣3️⃣ [[8. AWS RAM|AWS RAM]] — share TGW, subnets & other resources across accounts
+  - [ ] [[3.ALB vs NLB|Load Balancers (ALB vs NLB)]] — target groups, listener rules, cross-zone routing
+  - [ ] [[6. CloudFront & Edge Locations|CloudFront (CDN) & Edge Locations]] — caching & global edge delivery
 - [ ] **Compute & Serverless**
   - [ ] EC2 Fleet Management (Review your Python/Boto3 project)
   - [ ] AWS Lambda (Python & Golang), API Gateway (Proxy integrations, throttling, authorizers)
