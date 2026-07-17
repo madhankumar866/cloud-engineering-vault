@@ -128,6 +128,7 @@ flowchart LR
 - **Relates to:** [[VPC/Subnets|Subnets]] — private subnets route `0.0.0.0/0` to the NAT Gateway.
 - **Relates to:** [[VPC/Internet Gateway (IGW)|Internet Gateway (IGW)]] — the NAT Gateway itself uses the IGW to reach the internet; it must be in a public subnet with an IGW route.
 - **Relates to:** [[VPC/Router & Route Tables|Router & Route Tables]] — the private subnet's route table must point `0.0.0.0/0` at the NAT Gateway ID.
+- **Relates to:** [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] — practice creating NAT Gateways with `aws_eip` + `aws_nat_gateway` in Lab 3.
 - **Core Use Case:** EKS worker nodes in private subnets need to pull container images from ECR and download Helm charts — they route through a NAT Gateway per AZ for outbound internet access while remaining unreachable from the internet.
 
 ---

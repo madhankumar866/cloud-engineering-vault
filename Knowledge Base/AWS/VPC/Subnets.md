@@ -104,6 +104,7 @@ For private subnets, this should always be **disabled**.
 - **Relates to:** [[VPC/Router & Route Tables|Router & Route Tables]] — the route table attached to a subnet defines whether it's public or private.
 - **Relates to:** [[VPC/Internet Gateway (IGW)|Internet Gateway (IGW)]] — public subnets route `0.0.0.0/0` to the IGW.
 - **Relates to:** [[VPC/NAT Gateway|NAT Gateway]] — private subnets route outbound traffic through a NAT Gateway in a public subnet.
+- **Relates to:** [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] — practice creating subnets with `aws_subnet` in Labs 1 and 5.
 - **Core Use Case:** A standard 3-tier web app — ALB in public subnets (2 AZs), EC2 app servers in private subnets, RDS in isolated DB subnets. Each tier has its own CIDR range and route table so blast radius is contained per layer.
 
 ---
@@ -130,7 +131,7 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/2_subnets
 
 **What actually makes a subnet "public" vs. "private" in AWS?**
 ?

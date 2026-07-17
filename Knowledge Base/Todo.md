@@ -27,6 +27,11 @@ system design
 	{ Rate limter, load balancer, consisted listing, cdn, distribued cache, message queue
 		}
 terraform
+   {
+	   - [ ] [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] — 5 labs: VPC, Subnets, IGW, NAT GW, 3-Tier Capstone
+	   - [ ] Modules, Remote State, State Locking
+	   - [ ] Terragrunt (DRY Terraform)
+   }
 rust
 crossplane
 ELB - types, route 53 and policices

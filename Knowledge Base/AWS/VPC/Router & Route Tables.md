@@ -142,38 +142,44 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/3_routetable
 
 **How does the VPC router decide where to forward a packet?**
 ?
 It checks the packet's destination IP against all routes in the subnet's route table and picks the **most specific match** (longest prefix). The matched route's target is where the packet is forwarded.
+<!--SR:!2026-07-20,3,250-->
 
 ---
 
 **What is the local route in a VPC route table, and can it be deleted?**
 ?
 The local route (e.g., `10.0.0.0/16 → local`) allows all instances within the VPC to communicate with each other directly. It is **automatically present in every route table** and **cannot be deleted or modified**.
+<!--SR:!2026-07-20,3,250-->
 
 ---
 
 **If a subnet has no explicit route table association, what happens?**
 ?
 It automatically inherits the VPC's **main route table**. This is why the best practice is to keep the main route table with only the local route (no IGW) — so any forgotten subnet stays private by default.
+<!--SR:!2026-07-20,3,250-->
 
 ---
 
 **To make a private subnet's EC2 instance reach the internet, what route do you add and where does it point?**
 ?
 Add `0.0.0.0/0 → nat-xxxxx` (the NAT Gateway ID) to the private subnet's route table. The NAT Gateway must be in a public subnet.
+<!--SR:!2026-07-20,3,250-->
 
 ---
 
 **What is longest-prefix matching and why does it matter in route tables?**
 ?
 When multiple routes match a destination IP, the router picks the one with the most specific (longest) CIDR prefix. E.g., `10.0.1.0/24` beats `10.0.0.0/16` beats `0.0.0.0/0`. This lets you route specific subnets differently (e.g., to a VPN) without affecting other traffic.
+<!--SR:!2026-07-20,3,250-->
 
 ---
 
 **Can two subnets share the same route table?**
 ?
 Yes — many subnets can be associated with the same route table. But each subnet can only be associated with **one** route table at a time. If you need different routing for different subnets, you need separate route tables.
+<!--SR:!2026-07-20,3,250-->

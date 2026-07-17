@@ -95,11 +95,20 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/1_vpc
 
 **What is the CIDR block and subnet layout of a Default VPC?**
 ?
 `172.31.0.0/16` for the VPC (65,536 addresses), with one `/20` subnet auto-created in each Availability Zone (4,096 addresses each).
+
+---
+
+**What is a Subnet?**
+?
+A **subnet** (subnetwork) is a smaller, logical division of a larger IP network.
+**Purpose:** It improves performance, enhances security, and prevents IP address waste.
+**Mechanism:** Uses a **subnet mask** (like `255.255.255.0` or `/24`) to split an IP address into network and host parts.
+Traffic: Keeps local data isolated. Data traveling _between_ different subnets must pass through a router.
 
 ---
 

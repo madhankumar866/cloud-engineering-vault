@@ -69,3 +69,6 @@ flowchart LR
 - Update `status` in frontmatter to reflect the new state.
 - Verify technical claims already in the note before building on them — fix anything wrong rather than preserving it.
 - If it's a subtopic note, confirm it's linked from its hub's Subtopics list; add the link if missing.
+
+## Canvas Files
+When creating `.canvas` files to map out topics, do NOT use embedded file nodes (`"type": "file"`). Instead, use text nodes (`"type": "text"`) containing standard Obsidian wikilinks (e.g., `[[VPC/Subnets|Subnets]]`). Formatting the link as a Markdown header (e.g., `### [[Note Name]]`) makes it a large, clickable button. This ensures that clicking a topic in the canvas immediately navigates to the respective note rather than attempting to render a tiny embed on the canvas.
