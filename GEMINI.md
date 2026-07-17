@@ -72,3 +72,10 @@ flowchart LR
 
 ## Canvas Files
 When creating `.canvas` files to map out topics, do NOT use embedded file nodes (`"type": "file"`). Instead, use text nodes (`"type": "text"`) containing standard Obsidian wikilinks (e.g., `[[VPC/Subnets|Subnets]]`). Formatting the link as a Markdown header (e.g., `### [[Note Name]]`) makes it a large, clickable button. This ensures that clicking a topic in the canvas immediately navigates to the respective note rather than attempting to render a tiny embed on the canvas.
+
+## Guided Learning & Hands-On Practice
+Because the user studies asynchronously within Obsidian (rather than via live chat tutoring), the AI's role is to generate self-guided learning materials directly in the vault:
+1. **Self-Guided Checklists:** Map hands-on practice (like Terraform labs or architecture exercises) into structured markdown checklists (e.g., `- [ ] Task`) in dedicated Lab notes.
+2. **Clear Verification Steps:** Since the AI won't interactively review the user's work, every practical exercise must include self-verification steps (e.g., "Run `terraform plan` to verify X", or "Try pinging the IP to test the Security Group").
+3. **Link to Theory:** Every practice lab or exercise must use bidirectional links (`[[ ]]`) pointing back to the core concept notes so the user can easily look up the theory while practicing.
+4. **Flashcards for Knowledge Checks:** Instead of asking chat-based questions, convert testing questions into Obsidian spaced-repetition flashcards (`#flashcards`) placed at the bottom of the relevant concept notes.
