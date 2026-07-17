@@ -73,6 +73,14 @@ flowchart LR
 ## Canvas Files
 When creating `.canvas` files to map out topics, do NOT use embedded file nodes (`"type": "file"`). Instead, use text nodes (`"type": "text"`) containing standard Obsidian wikilinks (e.g., `[[VPC/Subnets|Subnets]]`). Formatting the link as a Markdown header (e.g., `### [[Note Name]]`) makes it a large, clickable button. This ensures that clicking a topic in the canvas immediately navigates to the respective note rather than attempting to render a tiny embed on the canvas.
 
+### 🛑 Canvas Validation Rule (CRITICAL)
+Whenever an agent interacts with, reads, or edits ANY `.canvas` file, it **MUST proactively VALIDATE** the following:
+1. **The Legend:** Ensure a separate text node exists at the very top of the canvas containing this exact color legend. If it is missing, the agent MUST inject it immediately:
+   - ⬜ **Default (No Color):** Not Started
+   - 🟨 **Yellow (Color 3):** In-Progress
+   - 🟩 **Green (Color 4):** Completed
+2. **Color Synchronization:** The agent must cross-reference the nodes in the canvas with the `status` frontmatter of their corresponding markdown notes. The agent MUST correct the canvas node colors so they accurately reflect the real status of the notes (e.g., if a note is `status: completed`, its canvas node must be updated to `"color":"4"`).
+
 ## Guided Learning & Hands-On Practice
 Because the user studies asynchronously within Obsidian (rather than via live chat tutoring), the AI's role is to generate self-guided learning materials directly in the vault:
 1. **Self-Guided Checklists:** Map hands-on practice (like Terraform labs or architecture exercises) into structured markdown checklists (e.g., `- [ ] Task`) in dedicated Lab notes.

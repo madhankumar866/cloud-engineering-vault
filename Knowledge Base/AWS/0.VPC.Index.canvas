@@ -31,7 +31,8 @@
 		{"id":"status_card","type":"text","text":"### ✅ Completed (15 notes)\nDefault VPC · Subnets · Route Tables\nIGW · NAT GW · SG & NACLs\nFlow Logs · VPC Peering · VPN\nTransit GW · Route53 · CloudFront\nPrivateLink · AWS RAM · VPC Hub\n\n### 🟡 Review (1)\nALB vs NLB\n\n### 🔴 Not Started (2)\nVPC Advanced Features\nVPC Terraform Labs","x":-60,"y":650,"width":280,"height":510,"color":"6"},
 		{"id":"header_questions","type":"text","text":"## ❓ Open Questions","x":320,"y":560,"width":280,"height":55,"color":"2"},
 		{"id":"questions_card","type":"text","text":"### Questions to Explore\n- [ ] How does VPC CIDR sizing affect Terraform `for_each` subnet loops?\n- [ ] NAT Instance vs NAT GW cost breakeven point?\n- [ ] How to implement VPC peering with Terraform across accounts?\n- [ ] Best practice for NACL rule numbering in Terraform?\n- [ ] How does Transit Gateway integrate with Terraform modules?","x":320,"y":650,"width":320,"height":350,"color":"2"},
-		{"id":"legend","type":"text","text":"### 🎨 Legend\n🟢 = Completed  |  🔴 = Not Started\n🟣 Purple = Labs  |  🔵 Blue = Info\n🔴 Red = To-Do  |  🟢 Green = Done","x":740,"y":650,"width":280,"height":180,"color":"6"}
+		{"id":"legend","type":"text","text":"### 🎨 Legend\n🟢 = Completed  |  🔴 = Not Started\n🟣 Purple = Labs  |  🔵 Blue = Info\n🔴 Red = To-Do  |  🟢 Green = Done","x":740,"y":650,"width":280,"height":180,"color":"6"},
+		{"id":"legend_node_status","type":"text","text":"### 🎨 Status Colors\n- ⬜ **Default:** Not Started\n- 🟨 **Yellow (3):** In-Progress\n- 🟩 **Green (4):** Completed","x":740,"y":-360,"width":250,"height":180}
 	],
 	"edges":[
 		{"id":"e_hub_core","fromNode":"vpc_hub","fromSide":"bottom","toNode":"header_core","toSide":"top","color":"4","label":"core"},

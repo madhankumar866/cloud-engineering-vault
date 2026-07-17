@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"678d3c03a731c420","type":"text","text":"Roles","x":-124,"y":-100,"width":105,"height":50,"color":"1"},
+		{"id":"0d251d0e36351d4e","type":"text","text":"Aws Engineering","x":-71,"y":-225,"width":185,"height":55,"color":"5"},
+		{"id":"ca24ad04f241d8e9","type":"text","text":"Release Engineer","x":160,"y":-225,"width":250,"height":50,"color":"5"},
+		{"id":"f9b70c23b58190ab","type":"text","text":"SRE","x":-136,"y":-340,"width":96,"height":50,"color":"5"},
+		{"id":"b6c38944f020f4b1","type":"text","text":"Devops","x":-294,"y":-340,"width":106,"height":50,"color":"5"},
+		{"id":"299d4ced63373673","type":"text","text":"Cloud-Engineering","x":-322,"y":-225,"width":198,"height":50,"color":"5"},
+		{"id":"step1_aws","type":"text","text":"### 1. AWS Foundation\n\n- Compute (EC2, Fargate)\n- Load Balancing (### [[3.ALB vs NLB]])\n- Events (SNS, SQS)\n- Storage (S3, Secrets)","x":-750,"y":150,"width":250,"height":200,"color":"2"},
+		{"id":"step2_iac","type":"text","text":"### 2. IaC Automation\n\n- ### [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]]\n- ### [[Terraform]] (Modules, State)\n- Terragrunt\n- ### [[AWS CDK CloudFormation]]","x":-450,"y":150,"width":250,"height":200,"color":"3"},
+		{"id":"step3_k8s","type":"text","text":"### 3. Kubernetes & EKS\n\n- ### [[EKS Architecture]]\n- Service Mesh (Istio)\n- Provisioning (Crossplane)\n- Autoscaling (Karpenter)","x":-150,"y":150,"width":250,"height":200,"color":"4"},
+		{"id":"step4_cicd","type":"text","text":"### 4. CI/CD & GitOps\n\n- Bash & Pipeline Scripting\n- CI Pipelines (### [[GitHub Actions]])\n- GitOps (### [[ArgoCD]])\n- Release Orch (### [[Argo Workflows]])\n- PR Automation (### [[Atlantis]])","x":150,"y":150,"width":250,"height":270,"color":"6"},
+		{"id":"step5_obs","type":"text","text":"### 5. Observability & FinOps\n\n- OpenTelemetry Traces\n- Prometheus & Grafana\n- Scale-to-zero (KEDA)\n- System Design Basics","x":450,"y":150,"width":250,"height":200,"color":"1"},
+		{"id":"master_path_title","type":"text","text":"# 🗺️ Master Tool Roadmap\n*The sequential learning path required for modern Cloud Engineering & DevOps roles.*","x":-150,"y":20,"width":450,"height":75,"color":"1"},
+		{"id":"step6_ai","type":"text","text":"### 6. Advanced Coding & AI\n\n- Python OOP & Golang\n- ### [[1. AI Agents Fundamentals]]\n- LangGraph Workflows\n- MCP Server for Infra Bots","x":840,"y":125,"width":250,"height":250,"color":"5"},
+		{"id":"legend_node_status","type":"text","text":"### 🎨 Status Colors\n- ⬜ **Default:** Not Started\n- 🟨 **Yellow (3):** In-Progress\n- 🟩 **Green (4):** Completed","x":575,"y":-540,"width":250,"height":200}
+	],
+	"edges":[
+		{"id":"d8114ebcce4acf9d","fromNode":"299d4ced63373673","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"c13f5a9536be05e2","fromNode":"b6c38944f020f4b1","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"b363e0e6dd818641","fromNode":"f9b70c23b58190ab","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"7b284f141ad65826","fromNode":"ca24ad04f241d8e9","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"fdd0c2da2b96bbd5","fromNode":"0d251d0e36351d4e","fromSide":"bottom","toNode":"678d3c03a731c420","toSide":"top"},
+		{"id":"edge_path_1_2","fromNode":"step1_aws","fromSide":"right","toNode":"step2_iac","toSide":"left"},
+		{"id":"edge_path_2_3","fromNode":"step2_iac","fromSide":"right","toNode":"step3_k8s","toSide":"left"},
+		{"id":"edge_path_3_4","fromNode":"step3_k8s","fromSide":"right","toNode":"step4_cicd","toSide":"left"},
+		{"id":"edge_path_4_5","fromNode":"step4_cicd","fromSide":"right","toNode":"step5_obs","toSide":"left"},
+		{"id":"edge_path_5_6","fromNode":"step5_obs","fromSide":"right","toNode":"step6_ai","toSide":"left"},
+		{"id":"edge_roles_to_path","fromNode":"678d3c03a731c420","fromSide":"bottom","toNode":"master_path_title","toSide":"top"}
+	]
+}
