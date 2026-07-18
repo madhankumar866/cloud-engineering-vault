@@ -7,8 +7,8 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
   - [ ] [[1. VPC Deep Dive]] — the isolated network container, CIDR blocks, default VPC
   - [ ] [[VPC/Subnets|Subnets]] — public vs private, CIDR sizing, reserved addresses
   - [ ] [[VPC/Router & Route Tables|Router & Route Tables]] — how traffic is directed inside a VPC
-  - [ ] [[VPC/NAT Gateway|NAT Gateway]] — private subnets reach internet (outbound only)
   - [ ] [[VPC/Internet Gateway (IGW)|Internet Gateway (IGW)]] — door to the public internet
+  - [ ] [[VPC/NAT Gateway|NAT Gateway]] — private subnets reach internet (outbound only)
   - [ ] [[VPC/Security-group & NACLS|Security Groups & NACLs]] — stateful vs stateless firewalls
   - [ ] [[VPC/VPC Flow Logs|VPC Flow Logs]] — visibility & auditing of network traffic
   - [ ] [[VPC/VPC-Peering|VPC Peering]] — direct 1:1 connection between two VPCs

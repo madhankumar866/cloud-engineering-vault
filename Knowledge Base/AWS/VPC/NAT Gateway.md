@@ -53,6 +53,20 @@ flowchart LR
 
 ---
 
+### The "Outbound-Only" Confusion (Statefulness)
+
+**Question:** If a NAT Gateway is "outbound-only," how can a private instance pull a large Docker image or download a software update? Isn't that data coming *inbound*?
+
+**Answer:** "Outbound-only" refers to who is allowed to **initiate** the connection, not the direction the data flows. 
+Because the NAT Gateway is a **stateful** device, it has a memory:
+1. **The Request (Outbound):** The private instance *initiates* the connection (e.g., asking DockerHub for an image). 
+2. **The Memory:** The NAT Gateway tracks this outbound request.
+3. **The Allowance (Inbound Data):** When DockerHub sends the data back, the NAT Gateway checks its memory, recognizes it as a response to a permitted request, and allows it through.
+
+If an attacker tries to *initiate* a connection from the outside, the NAT Gateway drops it because no internal instance asked for it. The initial knock on the door must always come from the inside!
+
+---
+
 ### Key Rules
 
 | Rule | Detail |
@@ -152,11 +166,16 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/5_NAT_Gateway
 
 **What is the NAT Gateway and what direction of traffic does it allow?**
 ?
 A managed networking component that enables instances in private subnets to access the internet (outbound only). The internet cannot initiate connections back to private instances through the NAT Gateway.
+
+---
+**If a NAT Gateway is "outbound-only", how is an EC2 instance able to download heavy software updates (inbound data)?**
+?
+"Outbound-only" means the internet cannot *initiate* connections to the instance. However, NAT Gateways are **stateful**. When the private instance initiates the outbound request to download the software, the NAT Gateway remembers this request. When the software data comes back inbound, the NAT Gateway allows it through because it recognizes it as the response to the permitted outbound request.
 
 ---
 

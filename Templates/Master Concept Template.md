@@ -1,6 +1,6 @@
 ---
 tags:
-status: not-started
+status: to-learn
 ---
 # {{title}}
 
@@ -11,6 +11,13 @@ status: not-started
 - **Relates to:** [[ ]]
 - **Core Use Case:** 
 
+## 🏗️ Proof of Work
+- **Lab/Script:** [[ ]]
+- **Verification Command:** ` `
+
+## 🚨 Troubleshooting (Learn by Breaking)
+- **Error Encountered:** 
+- **The Fix:** 
 ---
 
 ## 🛠️ Study Aids

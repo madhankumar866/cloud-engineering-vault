@@ -26,7 +26,7 @@ Frontmatter — exact shape, always:
 tags:
   - <topic tag from Tag Taxonomy>
   - review
-status: not-started | in-progress | completed
+status: to-learn | in-progress | review-apply | mastered
 ---
 ```
 - `status` is a frontmatter property only — never write it as an inline `#status/...` tag.
@@ -41,6 +41,10 @@ Section order and headers — exact, don't reorder or rename:
 ## 🔗 Connections (Zettelkasten)
 - **Relates to:** / **Part of:**
 - **Core Use Case:**
+---
+## 🏗️ Proof of Work
+- **Lab/Script:** [[ ]]
+- **Verification Command:** ` `
 ---
 ## 🛠️ Study Aids
 ### 🧠 Mind Map
@@ -73,17 +77,36 @@ flowchart LR
 ## Canvas Files
 When creating `.canvas` files to map out topics, do NOT use embedded file nodes (`"type": "file"`). Instead, use text nodes (`"type": "text"`) containing standard Obsidian wikilinks (e.g., `[[VPC/Subnets|Subnets]]`). Formatting the link as a Markdown header (e.g., `### [[Note Name]]`) makes it a large, clickable button. This ensures that clicking a topic in the canvas immediately navigates to the respective note rather than attempting to render a tiny embed on the canvas.
 
-### 🛑 Canvas Validation Rule (CRITICAL)
+### Architecture Topology Rule
+Instead of listing topics linearly, arrange Canvas nodes to mimic actual infrastructure deployments. For example:
+- **Foundation:** Place Infrastructure as Code (Terraform) nodes at the bottom/left.
+- **Platform:** Place Cloud services (AWS) in the middle, linked from IaC nodes.
+- **Pipeline:** Place CI/CD automation (Jenkins) on top, showing triggers.
+
+### Canvas Validation Rule (CRITICAL)
 Whenever an agent interacts with, reads, or edits ANY `.canvas` file, it **MUST proactively VALIDATE** the following:
-1. **The Legend:** Ensure a separate text node exists at the very top of the canvas containing this exact color legend. If it is missing, the agent MUST inject it immediately:
-   - ⬜ **Default (No Color):** Not Started
-   - 🟨 **Yellow (Color 3):** In-Progress
-   - 🟩 **Green (Color 4):** Completed
-2. **Color Synchronization:** The agent must cross-reference the nodes in the canvas with the `status` frontmatter of their corresponding markdown notes. The agent MUST correct the canvas node colors so they accurately reflect the real status of the notes (e.g., if a note is `status: completed`, its canvas node must be updated to `"color":"4"`).
+1. **The Legend & Visual Pipeline:** Ensure a separate text node exists at the very top of the canvas containing this exact color legend. If it is missing, the agent MUST inject it immediately:
+   - Default (No Color): To Learn
+   - Yellow (Color 3): In Progress
+   - Orange (Color 2): Review/Apply
+   - Green (Color 4): Mastered
+2. **Color Synchronization:** The agent must cross-reference the nodes in the canvas with the `status` frontmatter of their corresponding markdown notes. The agent MUST correct the canvas node colors so they accurately reflect the real status of the notes (e.g., if a note is `status: mastered`, its canvas node must be updated to `"color":"4"`).
+3. **WIP Limits:** The agent MUST warn the user if there are more than 3 topics with the "In Progress" status on the main canvas to prevent multitasking.
 
 ## Guided Learning & Hands-On Practice
 Because the user studies asynchronously within Obsidian (rather than via live chat tutoring), the AI's role is to generate self-guided learning materials directly in the vault:
-1. **Self-Guided Checklists:** Map hands-on practice (like Terraform labs or architecture exercises) into structured markdown checklists (e.g., `- [ ] Task`) in dedicated Lab notes.
-2. **Clear Verification Steps:** Since the AI won't interactively review the user's work, every practical exercise must include self-verification steps (e.g., "Run `terraform plan` to verify X", or "Try pinging the IP to test the Security Group").
-3. **Link to Theory:** Every practice lab or exercise must use bidirectional links (`[[ ]]`) pointing back to the core concept notes so the user can easily look up the theory while practicing.
-4. **Flashcards for Knowledge Checks:** Instead of asking chat-based questions, convert testing questions into Obsidian spaced-repetition flashcards (`#flashcards`) placed at the bottom of the relevant concept notes.
+1. **Deployments over Topics:** Frame milestones as functional deployments (e.g., "Use Terraform to deploy a VPC") rather than passive study topics (e.g., "Learn VPC").
+2. **Self-Guided Checklists:** Map hands-on practice (like Terraform labs or architecture exercises) into structured markdown checklists (e.g., `- [ ] Task`) in dedicated Lab notes.
+3. **Clear Verification Steps:** Since the AI won't interactively review the user's work, every practical exercise must include self-verification steps (e.g., "Run `terraform plan` to verify X", or "Try pinging the IP to test the Security Group").
+4. **Link to Theory:** Every practice lab or exercise must use bidirectional links (`[[ ]]`) pointing back to the core concept notes so the user can easily look up the theory while practicing.
+5. **Flashcards for Knowledge Checks:** Instead of asking chat-based questions, convert testing questions into Obsidian spaced-repetition flashcards (`#flashcards`) placed at the bottom of the relevant concept notes.
+6. **Proof of Work:** Never mark a topic's status as `mastered` unless a corresponding Proof of Work (script, configuration file, or mini-project) is linked in the `## 🏗️ Proof of Work` section of the note.
+
+## Just-in-Time Learning & Future Backlog
+Focus the main mapping canvas on immediate application (next 30-60 days). If a topic is valid but doesn't serve an immediate goal, proactively suggest moving it to the `Future Backlog.canvas` to keep the primary canvas lean and relevant.
+
+## Weekly Pruning Ritual
+When the user triggers a weekly review (e.g., by asking for a `/weekly-review` or "prune my canvas"):
+1. Analyze the main canvas and celebrate finished (Mastered) topics.
+2. Identify bottlenecks (e.g., topics that have lingered in "In Progress" for too long) and suggest slicing them down into smaller sub-topics.
+3. Help groom the backlog and refine the learning path for the upcoming week.

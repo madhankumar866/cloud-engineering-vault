@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"legend_node_status","type":"text","text":"### 🎨 Status Colors\n- ⬜ **Default:** Not Started\n- 🟨 **Yellow (3):** In-Progress\n- 🟩 **Green (4):** Completed","x":-250,"y":-600,"width":250,"height":150},
+		{"id":"legend_node_status","type":"text","text":"### Status Colors\n- Default: Not Started\n- Yellow (3): In-Progress\n- Green (4): Completed","x":-250,"y":-600,"width":250,"height":150},
 		{"id":"node-control-plane","type":"text","text":"# 🧠 EKS Control Plane\n*(Managed fully by AWS)*\nThis is the brain of your Kubernetes cluster. You don't have to manage or patch these servers.","x":-250,"y":-400,"width":500,"height":140,"color":"3"},
 		{"id":"node-api-server","type":"text","text":"**API Server**\nThe gateway. All `kubectl` commands and internal components talk to this.","x":-400,"y":-150,"width":250,"height":100},
 		{"id":"node-etcd","type":"text","text":"**etcd**\nThe highly-available database. Stores the cluster's entire state and secrets.","x":150,"y":-150,"width":250,"height":100},
