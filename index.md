@@ -99,6 +99,13 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
 - [ ] **Bash/Shell**
   - [ ] Process management & signal trapping
 
+## 📓 8. Vault Documentation & Guidelines
+- [ ] [[Templates/Master Concept Template|Master Concept Template]]
+- [ ] [[Templates/Tech Note Template|Tech Note Template]]
+- [ ] [[Templates/Tag Taxonomy|Tag Taxonomy]]
+- [ ] [[GEMINI|Agent Instructions]]
+- [ ] [[CONVENTIONS|Vault Conventions]]
+
 ---
 
 ## 📅 Daily Tracking Log

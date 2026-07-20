@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"inbox-instructions","type":"text","text":"# 📥 Inbox Dashboard\nWhen the Inbox Manager Sub-Agent processes `Inbox.md`, it will create nodes here categorized by topic.","x":-250,"y":-300,"width":500,"height":100,"color":"6"},
+		{"id":"group_ai_infra","type":"group","x":-600,"y":-150,"width":400,"height":450,"label":"AI Foundations & Optimization","color":"4"},
+		{"id":"node_transformers","type":"text","text":"### [[Transformers Architecture]]","x":-580,"y":-100,"width":360,"height":80},
+		{"id":"node_turboquant","type":"text","text":"### [[TurboQuant]]\n(Model Compression)","x":-580,"y":40,"width":360,"height":80},
+		{"id":"node_turbovec","type":"text","text":"### [[Turbovec]]\n(Vector Index)","x":-580,"y":180,"width":360,"height":80}
+	],
+	"edges":[
+		{"id":"edge_ai_flow","fromNode":"node_transformers","fromSide":"bottom","toNode":"node_turboquant","toSide":"top","label":"Optimized by"},
+		{"id":"edge_ai_flow2","fromNode":"node_turboquant","fromSide":"bottom","toNode":"node_turbovec","toSide":"top","label":"Built on"}
+	]
+}
