@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"a1b2c3d4e5f60005","type":"group","x":0,"y":560,"width":320,"height":520,"color":"5","label":"Social Energy"},
+		{"id":"a1b2c3d4e5f60006","type":"group","x":420,"y":560,"width":320,"height":520,"color":"6","label":"Recovery"},
+		{"id":"a1b2c3d4e5f60007","type":"group","x":840,"y":560,"width":320,"height":520,"color":"2","label":"Focus Architecture"},
+		{"id":"a1b2c3d4e5f60002","type":"group","x":0,"y":80,"width":320,"height":400,"color":"1","label":"Energy Drains & Gains"},
+		{"id":"a1b2c3d4e5f60003","type":"group","x":420,"y":80,"width":320,"height":400,"color":"3","label":"Physical Energy"},
+		{"id":"a1b2c3d4e5f60004","type":"group","x":840,"y":80,"width":320,"height":400,"color":"4","label":"Mental Load"},
+		{"id":"a1b2c3d4e5f60001","type":"text","text":"## Where My Energy Flows","x":430,"y":-100,"width":300,"height":60},
+		{"id":"a1b2c3d4e5f60008","type":"text","text":"Stop investing energy in things that don't serve you","x":20,"y":140,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60009","type":"text","text":"Prioritize your own time — don't let others' urgency run your day","x":20,"y":250,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000b","type":"text","text":"Optimize meal timing — track how each meal affects your focus","x":440,"y":140,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000c","type":"text","text":"Keep consistent sleep and wake times","x":440,"y":250,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000a","type":"text","text":"Log daily what drains vs. what energizes you","x":20,"y":360,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000d","type":"text","text":"Add short movement breaks between work blocks","x":440,"y":360,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000e","type":"text","text":"Reduce decision fatigue — simplify your routine choices","x":860,"y":140,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6000f","type":"text","text":"Close open loops — capture unfinished tasks to free mental space","x":860,"y":250,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60010","type":"text","text":"Audit apps and notifications — cut interruptions ruthlessly","x":860,"y":360,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60011","type":"text","text":"Identify who energizes vs. drains you — protect your time accordingly","x":20,"y":620,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60014","type":"text","text":"Take intentional breaks — not passive scrolling","x":440,"y":620,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60017","type":"text","text":"Sit in different spots — isolate away from TV and phone","x":860,"y":620,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60012","type":"text","text":"Replace unnecessary meetings with async messages","x":20,"y":730,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60015","type":"text","text":"Create an end-of-day shutdown ritual to mentally disconnect","x":440,"y":730,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60018","type":"text","text":"Stay at the office during evening hours to minimize home distractions","x":860,"y":730,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60013","type":"text","text":"Practice saying no without guilt","x":20,"y":840,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60016","type":"text","text":"Identify activities that genuinely restore your energy","x":440,"y":840,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f60019","type":"text","text":"Time-block deep work during your peak energy hours","x":860,"y":840,"width":280,"height":90},
+		{"id":"a1b2c3d4e5f6001a","type":"text","text":"Build a morning routine before checking your phone or messages","x":860,"y":950,"width":280,"height":90}
+	],
+	"edges":[
+		{"id":"e1b2c3d4e5f60001","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60002","toSide":"top"},
+		{"id":"e1b2c3d4e5f60002","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60003","toSide":"top"},
+		{"id":"e1b2c3d4e5f60003","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60004","toSide":"top"},
+		{"id":"e1b2c3d4e5f60004","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60005","toSide":"top"},
+		{"id":"e1b2c3d4e5f60005","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60006","toSide":"top"},
+		{"id":"e1b2c3d4e5f60006","fromNode":"a1b2c3d4e5f60001","fromSide":"bottom","toNode":"a1b2c3d4e5f60007","toSide":"top"}
+	]
+}

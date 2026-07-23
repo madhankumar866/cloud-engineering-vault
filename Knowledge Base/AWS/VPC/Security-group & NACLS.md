@@ -20,15 +20,15 @@ AWS gives you **two layers of firewalls** in a VPC. They work together but at di
 
 ### Security Group vs. NACL — Side-by-Side ⭐
 
-| | Security Group | NACL |
-|---|---|---|
-| **Scope** | Resource-level (EC2, ENI, RDS) | Subnet-level |
-| **Stateful/Stateless** | **Stateful** — responses auto-allowed | **Stateless** — must explicitly allow both directions |
-| **Allow / Deny** | **Allow only** — no deny rules | **Allow AND Deny** |
-| **Rule evaluation** | All rules evaluated together (union) | Rules evaluated in **ascending number order** — first match wins |
-| **Default behaviour** | Outbound: allow all · Inbound: deny all | Default NACL: allow all in/out |
-| **Association** | Attached to individual resources | One NACL per subnet (many subnets can share one) |
-| **When to use** | Day-to-day firewall — your primary tool | Subnet-wide blocking (e.g., deny a known bad IP range) |
+|                        | Security Group                          | NACL                                                             |
+| ---------------------- | --------------------------------------- | ---------------------------------------------------------------- |
+| **Scope**              | Resource-level (EC2, ENI, RDS)          | Subnet-level                                                     |
+| **Stateful/Stateless** | **Stateful** — responses auto-allowed   | **Stateless** — must explicitly allow both directions            |
+| **Allow / Deny**       | **Allow only** — no deny rules          | **Allow AND Deny**                                               |
+| **Rule evaluation**    | All rules evaluated together (union)    | Rules evaluated in **ascending number order** — first match wins |
+| **Default behaviour**  | Outbound: allow all · Inbound: deny all | Default NACL: allow all in/out                                   |
+| **Association**        | Attached to individual resources        | One NACL per subnet (many subnets can share one)                 |
+| **When to use**        | Day-to-day firewall — your primary tool | Subnet-wide blocking (e.g., deny a known bad IP range)           |
 
 ---
 
@@ -346,78 +346,84 @@ Revoking.
 **What's the key difference between a stateless and a stateful firewall?**
 ?
 A stateless firewall (NACL) requires you to explicitly permit both the inbound request and the outbound response. A stateful firewall (Security Group) only requires the request direction to be permitted — the response is automatically allowed.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **Can a NACL rule deny traffic? Can a Security Group rule deny traffic?**
 ?
 NACL rules can allow or deny. Security Group rules can only allow — there's no explicit deny.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **How many NACLs can a single subnet be associated with, and how many subnets can one NACL cover?**
 ?
 A subnet can be associated with exactly one NACL at a time, but a single NACL can be associated with multiple subnets.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **In an inbound network ACL rule, what does the "Source" field specify?**
 ?
 The CIDR range originating the traffic.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **In an outbound network ACL rule, what does the "Destination" field specify?**
 ?
 The CIDR range to which the traffic is being sent.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **To deny a specific port within a wider allowed range in a network ACL, what must be true of the deny rule's number?**
 ?
 It must be lower than the rule that allows the wider range.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **In the context of NACLs, what range of ports is typically used for outbound responses to a remote computer (ephemeral ports)?**
 ?
 1024–65535.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **Which security layer supports both "allow" and "deny" rules?**
 ?
 Network ACLs.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **Why is a network ACL described as "stateless" regarding return traffic?**
 ?
 Because return traffic must be explicitly allowed by a rule.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **How does the rule evaluation of a security group differ from a network ACL?**
 ?
 A security group evaluates all rules before deciding, whereas a network ACL stops at the first match.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **A security group applies to all instances associated with it, whereas a network ACL applies to _____.**
 ?
 All instances in the associated subnets.
-
----
-
-**When a network ACL rule is added or removed, when do the changes apply to associated subnets?**
-?
-The changes are automatically and immediately applied.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **Which security layer acts as a "backup layer of defence" if security groups are accidentally misconfigured?**
 ?
 Network ACLs.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
@@ -494,35 +500,41 @@ The subnet level.
 **Which IAM managed policies are recommended to ensure a principal can share security groups?**
 ?
 AmazonEC2FullAccess and AWSResourceAccessManagerFullAccess.
+<!--SR:!2026-07-25,3,250-->
 
 
 **What is the purpose of Path MTU Discovery?**
 ?
 To determine the maximum packet size supported on the path between two hosts.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **In Path MTU Discovery for IPv4, what ICMP message is returned when a packet is too large and the DF flag is set?**
 ?
 Destination Unreachable: Fragmentation Needed (Type 3, Code 4).
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **To support Path MTU Discovery, which ICMP type and code must be allowed in a network ACL for IPv4?**
 ?
 Type 3, Code 4.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **Which ICMP message must be allowed in a network ACL to enable the "traceroute" utility?**
 ?
 Time Exceeded, TTL expired in transit (Type 11, Code 0).
+<!--SR:!2026-07-25,3,250-->
 
 ---
 
 **For IPv6 Path MTU Discovery, what is the ICMPv6 Type number for "Packet Too Big"?**
 ?
 Type 2.
+<!--SR:!2026-07-25,3,250-->
 
 ---
 

@@ -26,7 +26,7 @@ Frontmatter — exact shape, always:
 tags:
   - <topic tag from Tag Taxonomy>
   - review
-status: to-learn | in-progress | review-apply | mastered
+status: not-started | in-progress | completed
 ---
 ```
 - `status` is a frontmatter property only — never write it as an inline `#status/...` tag.
@@ -77,6 +77,18 @@ flowchart LR
 ## Canvas Files
 When creating `.canvas` files to map out topics, do NOT use embedded file nodes (`"type": "file"`). Instead, use text nodes (`"type": "text"`) containing standard Obsidian wikilinks (e.g., `[[VPC/Subnets|Subnets]]`). Formatting the link as a Markdown header (e.g., `### [[Note Name]]`) makes it a large, clickable button. This ensures that clicking a topic in the canvas immediately navigates to the respective note rather than attempting to render a tiny embed on the canvas.
 
+### Group Organization Rule for obsidian canvas
+Use `"type": "group"` nodes to visually organize sections in canvas files — never use a large text node as a section header. The canonical pattern is the `🏗️ VPC Core Building Blocks` group in `Knowledge Base/AWS/0.VPC.Index.canvas`.
+
+**Required properties for a group node:**
+```json
+{"id": "...", "type": "group", "label": "🔒 Section Title", "x": 0, "y": 0, "width": 320, "height": 300, "color": "6"}
+```
+- Use `label` for the section title — **never** add a `text` field to a group node.
+- Size `x/y/width/height` so every child node's bounding box is fully contained within the group bounds. (child_x ≥ group_x, child_x + child_width ≤ group_x + group_width, same for y/height).
+- Leave ~20 px padding on all sides between the group edge and the outermost child node.
+- Groups can have a `color` that differs from their children. Children retain their own colors independently.
+
 ### Architecture Topology Rule
 Instead of listing topics linearly, arrange Canvas nodes to mimic actual infrastructure deployments. For example:
 - **Foundation:** Place Infrastructure as Code (Terraform) nodes at the bottom/left.
@@ -90,7 +102,7 @@ Whenever an agent interacts with, reads, or edits ANY `.canvas` file, it **MUST 
    - Yellow (Color 3): In Progress
    - Orange (Color 2): Review/Apply
    - Green (Color 4): Mastered
-2. **Color Synchronization:** The agent must cross-reference the nodes in the canvas with the `status` frontmatter of their corresponding markdown notes. The agent MUST correct the canvas node colors so they accurately reflect the real status of the notes (e.g., if a note is `status: mastered`, its canvas node must be updated to `"color":"4"`).
+2. **Color Synchronization:** The agent must cross-reference the nodes in the canvas with the `status` frontmatter of their corresponding markdown notes. The agent MUST correct the canvas node colors so they accurately reflect the real status of the notes (e.g., if a note is `status: completed`, its canvas node must be updated to `"color":"4"`).
 3. **WIP Limits:** The agent MUST warn the user if there are more than 3 topics with the "In Progress" status on the main canvas to prevent multitasking.
 
 ## Guided Learning & Hands-On Practice
@@ -100,7 +112,7 @@ Because the user studies asynchronously within Obsidian (rather than via live ch
 3. **Clear Verification Steps:** Since the AI won't interactively review the user's work, every practical exercise must include self-verification steps (e.g., "Run `terraform plan` to verify X", or "Try pinging the IP to test the Security Group").
 4. **Link to Theory:** Every practice lab or exercise must use bidirectional links (`[[ ]]`) pointing back to the core concept notes so the user can easily look up the theory while practicing.
 5. **Flashcards for Knowledge Checks:** Instead of asking chat-based questions, convert testing questions into Obsidian spaced-repetition flashcards (`#flashcards`) placed at the bottom of the relevant concept notes.
-6. **Proof of Work:** Never mark a topic's status as `mastered` unless a corresponding Proof of Work (script, configuration file, or mini-project) is linked in the `## 🏗️ Proof of Work` section of the note.
+6. **Proof of Work:** Never mark a topic's status as `completed` unless a corresponding Proof of Work (script, configuration file, or mini-project) is linked in the `## 🏗️ Proof of Work` section of the note.
 
 ## Just-in-Time Learning & Future Backlog
 Focus the main mapping canvas on immediate application (next 30-60 days). If a topic is valid but doesn't serve an immediate goal, proactively suggest moving it to the `Future Backlog.canvas` to keep the primary canvas lean and relevant.
@@ -110,3 +122,66 @@ When the user triggers a weekly review (e.g., by asking for a `/weekly-review` o
 1. Analyze the main canvas and celebrate finished (Mastered) topics.
 2. Identify bottlenecks (e.g., topics that have lingered in "In Progress" for too long) and suggest slicing them down into smaller sub-topics.
 3. Help groom the backlog and refine the learning path for the upcoming week.
+
+---
+
+## VPC Mastery Learning Path (July 21 – August 4, 2026)
+
+**Goal:** Master VPC architecture end-to-end — from fundamentals to production Terraform infrastructure.
+
+**Active Tracker:** `Inbox/VPC-Learning-Tracker.md` (14-day daily log with hourly breakdown)
+**Visual Progress:** `Knowledge Base/AWS/0.VPC.Index.canvas` (learning map with phase tracking)
+
+### Learning Phases
+
+**Phase 1: Close Knowledge Gaps (Days 1–2)** — ~6 hours
+- Finish ALB vs NLB review ([3.ALB vs NLB.md](Knowledge%20Base/AWS/3.ALB%20vs%20NLB.md))
+- Complete VPC Advanced Features ([4. VPC Advanced Features.md](Knowledge%20Base/AWS/4.%20VPC%20Advanced%20Features.md))
+- Answer 2–3 priority open questions from canvas
+- **Success:** Can explain ALB vs NLB + VPC advanced concepts
+
+**Phase 2: Hands-On Labs — Terraform (Days 3–10)** — ~16.5 hours
+1. **Lab 3: NAT Gateway** (Days 3–4) — Build private subnet + outbound internet
+   - Reference: [NAT Gateway.md](Knowledge%20Base/AWS/VPC/NAT%20Gateway.md), [VPC-Terraform-Labs.md](Knowledge%20Base/AWS/VPC/VPC-Terraform-Labs.md)
+   - Verify: Private EC2 can reach internet; can't be reached from public
+2. **Lab 4: Security Groups + NACLs** (Days 5–6) — Multi-layer firewall rules
+   - Reference: [Security-group & NACLS.md](Knowledge%20Base/AWS/VPC/Security-group%20&%20NACLS.md), [VPC Flow Logs.md](Knowledge%20Base/AWS/VPC/VPC%20Flow%20Logs.md)
+   - Verify: Correct inbound/outbound rules enforced; logs show traffic patterns
+3. **Lab 5: 3-Tier Capstone** (Days 7–10) — Production-grade architecture
+   - Design: Web tier (public) → App tier (private) → DB tier (isolated)
+   - Build: Terraform modules for VPC, subnets, gateways, security
+   - Test: Full 3-tier connectivity; document architecture
+   - Verify: All tiers communicate securely; traffic follows rules
+
+**Phase 3: Deep Dives & Integration (Days 11–14)** — ~7–10 hours
+- Answer remaining open questions (CIDR sizing, cost, cross-account, NACL rules, TGW integration)
+- Optional: Transit Gateway deep dive (expand Lab 5 to multi-VPC)
+- Optional: Pending topics (GWLB, Traffic Mirroring, ENI, IPAM, Network Firewall)
+- Capstone review + documentation
+
+### Daily Study Template
+```
+🕐 Morning (30 min): Review progress, preview today's concept/lab
+📚 Learn (1–2 hrs): Read guide, take notes
+🔨 Build (1–2 hrs): Write Terraform, deploy & test
+✅ Reflect (30 min): Document findings, flag blockers, update tracker
+```
+
+### Success Checkpoints (Update as Complete)
+- [ ] Day 2: Explain ALB vs NLB + VPC Advanced Features
+- [ ] Day 4: Lab 3 passes (private subnet + NAT GW works)
+- [ ] Day 6: Lab 4 passes (firewall rules enforced correctly)
+- [ ] Day 10: Lab 5 capstone complete (3-tier architecture deployed)
+- [ ] Day 14: Open questions answered + capstone documented
+
+### Tracking Rules
+1. **Canvas Daily:** Move completed items right in Status section; update phase progress
+2. **Lab Checklist:** Mark ✅/🟡/🔴 as you progress through labs
+3. **Open Questions:** Cross off as answered during/after labs
+4. **Git Commits:** After each lab milestone, commit Terraform code with lab phase in message
+
+### If Blocked
+- **Terraform error:** Check Lab notes for common issues + AWS Console
+- **Concept unclear:** Re-read guide + search canvas for related notes
+- **Lab won't deploy:** Use VPC Flow Logs + AWS Console to debug
+- **Time short:** Skip optional topics; focus on Labs 3–5 capstone only
