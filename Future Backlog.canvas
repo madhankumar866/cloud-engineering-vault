@@ -1,7 +1,0 @@
-{
-	"nodes":[
-		{"id":"legend","type":"text","text":"### Pipeline Legend\n- **Default (No Color):** To Learn\n- **Yellow (Color 3):** In Progress\n- **Orange (Color 2):** Review/Apply\n- **Green (Color 4):** Mastered","x":-300,"y":-400,"width":260,"height":160},
-		{"id":"backlog-title","type":"text","text":"# Future Backlog\nThis canvas is for *Just-in-Case* topics. Any topic that doesn't serve a project or goal within the next 30-60 days gets parked here to keep the main canvas lean.","x":0,"y":-400,"width":400,"height":160,"color":"6"}
-	],
-	"edges":[]
-}

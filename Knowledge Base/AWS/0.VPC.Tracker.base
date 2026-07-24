@@ -1,0 +1,20 @@
+name: VPC Tracker
+version: "1.1"
+filters:
+  or:
+    - file.folder == "Knowledge Base/AWS"
+    - file.folder == "Knowledge Base/AWS/VPC"
+views:
+  - type: table
+    name: Data Table
+    order:
+      - file.name
+      - status
+      - tags
+    sort:
+      - property: file.name
+        direction: DESC
+      - property: status
+        direction: DESC
+  - type: cards
+    name: Cards View

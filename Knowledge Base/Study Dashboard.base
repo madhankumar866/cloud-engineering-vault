@@ -14,6 +14,36 @@ columns:
 sort:
   field: tags
   order: asc
+filters:
+  or:
+    - file.folder == "Knowledge Base/AWS"
+    - file.folder == "Knowledge Base/AWS/VPC"
+formulas:
+  Untitled: ""
 views:
   - type: table
     name: Table
+    order:
+      - file.name
+      - status
+      - tags
+      - file.links
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: status
+        direction: DESC
+      - property: formula.Untitled
+        direction: ASC
+    columnSize:
+      file.name: 221
+  - type: list
+    name: View
+    filters:
+      and:
+        - file.folder == "Knowledge Base/AWS"
+    markers: number
+    indentProperties: false
+    separator: ","
+  - type: cards
+    name: View 2
