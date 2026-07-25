@@ -26,11 +26,13 @@ Frontmatter — exact shape, always:
 tags:
   - <topic tag from Tag Taxonomy>
   - review
+  - rep/1
 status: not-started | in-progress | completed
 ---
 ```
 - `status` is a frontmatter property only — never write it as an inline `#status/...` tag.
 - Always include `review` as a tag (drives the spaced-repetition plugin).
+- Always include a repetition tracking tag (e.g., `rep/1`, `rep/2`, etc.) in the `tags` array. **CRITICAL:** When editing or reviewing notes, you MUST validate that a `rep/X` tag exists in the frontmatter. If it is missing, add `rep/1` by default.
 - Only use topic tags already listed in `Templates/Tag Taxonomy.md` (e.g. `aws/networking`, `aws/compute`, `kubernetes/eks`, `iac/terraform`, `agent-ai/mcp`, ...). If a note doesn't fit an existing tag, add the new tag to `Tag Taxonomy.md` first, then use it — don't invent one inline.
 
 Section order and headers — exact, don't reorder or rename:

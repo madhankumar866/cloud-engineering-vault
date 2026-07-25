@@ -1,0 +1,26 @@
+{
+	"nodes":[
+		{"id":"legend","type":"text","text":"**Legend:**\n- Default (No Color): To Learn\n- Yellow (Color 3): In Progress\n- Orange (Color 2): Review/Apply\n- Green (Color 4): Mastered","x":-200,"y":-500,"width":300,"height":160},
+		{"id":"group-workflows","type":"group","label":"🔒 Workflows & Execution","x":-600,"y":-200,"width":320,"height":300,"color":"6"},
+		{"id":"node-1","type":"text","text":"### [[Harness Engineering]]","x":-580,"y":-140,"width":280,"height":60},
+		{"id":"node-2","type":"text","text":"### [[Loop Engineering]]","x":-580,"y":-60,"width":280,"height":60},
+		{"id":"node-6","type":"text","text":"### [[Orchestration Patterns]]","x":-580,"y":20,"width":280,"height":60},
+		{"id":"group-cognition","type":"group","label":"🔒 Cognition & Context","x":-250,"y":-200,"width":320,"height":220,"color":"6"},
+		{"id":"node-3","type":"text","text":"### [[Context Engineering]]","x":-230,"y":-140,"width":280,"height":60},
+		{"id":"node-5","type":"text","text":"### [[Memory Architecture]]","x":-230,"y":-60,"width":280,"height":60},
+		{"id":"group-tools","type":"group","label":"🔒 Tools & Boundaries","x":100,"y":-200,"width":320,"height":220,"color":"6"},
+		{"id":"node-4","type":"text","text":"### [[Tool Design]]","x":120,"y":-140,"width":280,"height":60},
+		{"id":"node-7","type":"text","text":"### [[Guardrails & Permissions]]","x":120,"y":-60,"width":280,"height":60},
+		{"id":"group-evals","type":"group","label":"🔒 Evaluation & Safety","x":-250,"y":100,"width":320,"height":220,"color":"6"},
+		{"id":"node-8","type":"text","text":"### [[Evals for Agents]]","x":-230,"y":160,"width":280,"height":60},
+		{"id":"node-9","type":"text","text":"### [[Human-in-the-loop Design]]","x":-230,"y":240,"width":280,"height":60},
+		{"id":"group-ops","type":"group","label":"🔒 Operations","x":100,"y":100,"width":320,"height":140,"color":"6"},
+		{"id":"node-10","type":"text","text":"### [[Observability & Tracing]]","x":120,"y":160,"width":280,"height":60}
+	],
+	"edges":[
+		{"id":"edge-1","fromNode":"group-workflows","fromSide":"right","toNode":"group-cognition","toSide":"left"},
+		{"id":"edge-2","fromNode":"group-cognition","fromSide":"right","toNode":"group-tools","toSide":"left"},
+		{"id":"edge-3","fromNode":"group-cognition","fromSide":"bottom","toNode":"group-evals","toSide":"top"},
+		{"id":"edge-4","fromNode":"group-evals","fromSide":"right","toNode":"group-ops","toSide":"left"}
+	]
+}

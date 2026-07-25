@@ -35,3 +35,12 @@ Used strictly as a YAML property `status:`, not as an inline tag. Valid values:
 - `not-started`
 - `in-progress`
 - `completed`
+
+## 5. Repetition State Tags
+Used to track where a note is in the memorization schedule. Add one of these to the frontmatter `tags` array:
+- `#rep/1` : Needs 1st Repetition (In-Class / Active Capture)
+- `#rep/2` : Needs 2nd Repetition (Out-of-Class / Synthesis)
+- `#rep/3` : Needs 3rd Repetition (Next day / 1-day)
+- `#rep/4` : Needs 4th Repetition (2-3 weeks)
+- `#rep/5` : Needs 5th Repetition (2-3 months)
+- `#rep/mastered` : Schedule complete

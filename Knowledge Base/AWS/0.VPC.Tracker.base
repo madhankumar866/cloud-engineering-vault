@@ -4,17 +4,29 @@ filters:
   or:
     - file.folder == "Knowledge Base/AWS"
     - file.folder == "Knowledge Base/AWS/VPC"
+formulas:
+  Untitled: ""
 views:
   - type: table
     name: Data Table
     order:
       - file.name
+      - Repetition
       - status
       - tags
     sort:
+      - property: Repetition
+        direction: ASC
+      - property: formula.Untitled
+        direction: ASC
+      - property: tag
+        direction: ASC
       - property: file.name
-        direction: DESC
+        direction: ASC
       - property: status
         direction: DESC
+    columnSize:
+      note.Repetition: 121
+      note.tags: 465
   - type: cards
     name: Cards View
