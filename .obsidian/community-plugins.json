@@ -1,5 +1,7 @@
 [
   "obsidian-spaced-repetition",
   "dataview",
-  "notebook-navigator"
+  "notebook-navigator",
+  "taskgregator",
+  "obsidian-tasks-plugin"
 ]

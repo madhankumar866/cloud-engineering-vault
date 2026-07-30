@@ -4,6 +4,7 @@ tags:
   - vpc
   - review
 status: completed
+Repetition: rep/3
 ---
 # Security Groups & NACLs
 
@@ -125,48 +126,56 @@ flowchart LR
 **What happens when a resource has multiple Security Groups attached?**
 ?
 Their rules are merged — the resource ends up with the union of all rules from every attached Security Group.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **At which level of the network hierarchy do security groups operate?**
 ?
 The instance level.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **Security groups support only _____ rules.**
 ?
 Allow.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **Why is a security group described as "stateful" regarding return traffic?**
 ?
 Because return traffic is automatically allowed regardless of rules.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **What is the default inbound traffic policy for a newly created security group?**
 ?
 No inbound traffic is allowed until rules are added.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **What is the default outbound traffic policy for a newly created security group?**
 ?
 All outbound traffic is allowed by default.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **What are the three most common protocol numbers used in security group rules?**
 ?
 6 (TCP), 17 (UDP), and 1 (ICMP).
+<!--SR:!2026-07-30,1,230-->
 
 ---
 
 **How does the IPv6 protocol handle packets that exceed a device's MTU along a path?**
 ?
 The device drops the packet and returns an ICMPv6 Packet Too Big (PTB) message.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
@@ -176,24 +185,28 @@ The device drops the packet and returns an ICMPv6 Packet Too Big (PTB) message.
 **In security group referencing, what addresses are used for communication between instances?**
 ?
 The private IP addresses of the instances.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **Can a security group reference another security group if they are in different VPCs connected by a peering connection?**
 ?
 Yes.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **When using a middlebox appliance between two subnets, how must security groups reference each other to allow traffic?**
 ?
 They must reference the private IP address or CIDR range of the other instance/subnet.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **In a security group, how many rules does a single CIDR block reference count as?**
 ?
 One rule.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
@@ -206,34 +219,40 @@ It counts as the maximum size of the prefix list.
 **How does a rule referencing an AWS-managed prefix list affect the security group's rule quota?**
 ?
 It counts as the weight of the prefix list.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **How many rules does a security group rule referencing another security group count as toward the quota?**
 ?
 One rule, regardless of the referenced group's size.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **In a security group rule for ICMP, what is Type 8 commonly used for?**
 ?
 ICMP Echo Request (Ping).
+<!--SR:!2026-08-01,3,250-->
 
 
 **What is the maximum character length for a security group rule description?**
 ?
 255 characters.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **Can a security group rule reference an IPv6 address?**
 ?
 Yes, using the `/128` prefix length.
+<!--SR:!2026-08-01,3,250-->
 
 ---
 
 **What is the canonical form of an IPv4 address rule in a security group?**
 ?
+<!--SR:!2026-08-01,3,250-->
 
 The address followed by the `/32` prefix length.
 

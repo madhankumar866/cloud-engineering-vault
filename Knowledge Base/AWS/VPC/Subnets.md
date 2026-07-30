@@ -4,6 +4,7 @@ tags:
   - vpc
   - review
 status: completed
+Repetition: rep/3
 ---
 # Subnets
 
@@ -151,7 +152,7 @@ In any subnet `x.x.x.0/n`: first address (network), `.1` (VPC router), `.2` (AWS
 
 ---
 
-**If you need a NAT Gateway for your private subnets, which subnet do you put it in and why?**
+**IMP If you need a NAT Gateway for your private subnets, which subnet do you put it in and why?**
 ?
 In a **public subnet** — the NAT Gateway itself needs a route to the internet (via IGW) to forward outbound traffic from private instances. If it were in a private subnet, it couldn't reach the internet either.
 

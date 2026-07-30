@@ -4,6 +4,7 @@ tags:
   - vpc
   - review
 status: completed
+Repetition: rep/3
 ---
 # Default VPC
 
