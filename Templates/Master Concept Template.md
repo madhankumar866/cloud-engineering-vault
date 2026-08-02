@@ -1,7 +1,8 @@
 ---
 tags:
-  - rep/1
+  - review
 status: to-learn
+Repetition: rep/1
 ---
 # {{title}}
 

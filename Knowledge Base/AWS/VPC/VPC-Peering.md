@@ -4,6 +4,7 @@ tags:
   - vpc
   - review
 status: completed
+Repetition: rep/3
 ---
 # VPC Peering
 
@@ -131,17 +132,19 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/8_vpc-peering
 
 **Is a VPC Peering connection transitive? If VPC A is peered with VPC B, and VPC B is peered with VPC C, can A reach C?**
 ?
 No. VPC Peering is non-transitive. A cannot reach C through B — you need a direct A-to-C peering connection, or use a Transit Gateway instead.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **What CIDR requirement must two VPCs meet before they can be peered?**
 ?
 Their CIDR blocks must not overlap. If they do, the peering connection cannot be created.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
@@ -149,27 +152,56 @@ Their CIDR blocks must not overlap. If they do, the peering connection cannot be
 ?
 1. Route table entries on **both sides** pointing the peer VPC's CIDR at the peering connection ID (`pcx-xxxxxxxx`).
 2. Security Group / NACL rules allowing traffic from the peer's CIDR if needed.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **Does VPC Peering support connections across different AWS accounts and different regions?**
 ?
 Yes — VPC Peering supports both cross-account and cross-region (inter-region) connections.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **How is data transfer billed over a VPC Peering connection?**
 ?
 Creating/accepting the connection is free. Same-AZ traffic over peering is free. Cross-AZ or cross-region traffic is billed at standard data transfer rates on both sides.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **Why would you choose a Transit Gateway over VPC Peering when connecting many VPCs?**
 ?
 VPC Peering is non-transitive, so N VPCs fully connected requires N*(N-1)/2 peering connections (a full mesh). Transit Gateway acts as a central hub — each VPC attaches once and can route to every other attached VPC.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **What is "DNS resolution support" on a VPC Peering connection, and when should you enable it?**
 ?
 By default, private DNS hostnames of instances in a peer VPC resolve to their public IPs. Enabling DNS resolution support on the peering connection (both sides) makes those hostnames resolve to private IPs instead — essential for private-only communication.
+<!--SR:!2026-08-03,3,250-->
+
+---
+
+**What is the formula to calculate the total number of peering connections required to fully interconnect $N$ non-transitive VPCs (a full mesh)?**
+?
+$N \times (N - 1) / 2$. For example, fully peering 6 VPCs requires 15 separate connections.
+
+---
+
+**Under what exact architectural condition is data transfer over a VPC Peering connection completely free ($0/GB)?**
+?
+When the communicating instances in both peered VPCs reside in the exact same Availability Zone (e.g., both in `us-east-1a`). Cross-AZ traffic over peering is billed on both sides.
+
+---
+
+**What resource ID prefix must you specify as the target in a route table when sending traffic across a VPC Peering link?**
+?
+`pcx-` (e.g., `pcx-xxxxxxxx`).
+
+---
+
+**Why would a network architect prefer direct VPC Peering over Transit Gateway for high-volume data transfer between just two VPCs?**
+?
+VPC Peering has no hourly hub charges and $0 data processing fees, whereas Transit Gateway charges hourly per attachment plus a $0.02/GB data processing surcharge. Peering also provides the lowest possible latency without middlebox routing hops.

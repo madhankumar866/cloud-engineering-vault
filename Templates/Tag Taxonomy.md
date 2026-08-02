@@ -36,11 +36,11 @@ Used strictly as a YAML property `status:`, not as an inline tag. Valid values:
 - `in-progress`
 - `completed`
 
-## 5. Repetition State Tags
-Used to track where a note is in the memorization schedule. Add one of these to the frontmatter `tags` array:
-- `#rep/1` : Needs 1st Repetition (In-Class / Active Capture)
-- `#rep/2` : Needs 2nd Repetition (Out-of-Class / Synthesis)
-- `#rep/3` : Needs 3rd Repetition (Next day / 1-day)
-- `#rep/4` : Needs 4th Repetition (2-3 weeks)
-- `#rep/5` : Needs 5th Repetition (2-3 months)
-- `#rep/mastered` : Schedule complete
+## 5. Repetition State Property (`Repetition:`)
+Used to track where a note is in the memorization schedule. Add this as a standalone key-value property in the YAML frontmatter (e.g., `Repetition: rep/1`)—never inside the `tags:` array, so that tracker base files and dashboards can query study progress properly:
+- `Repetition: rep/1` : Needs 1st Repetition (In-Class / Active Capture)
+- `Repetition: rep/2` : Needs 2nd Repetition (Out-of-Class / Synthesis)
+- `Repetition: rep/3` : Needs 3rd Repetition (Next day / 1-day)
+- `Repetition: rep/4` : Needs 4th Repetition (2-3 weeks)
+- `Repetition: rep/5` : Needs 5th Repetition (2-3 months)
+- `Repetition: rep/mastered` : Schedule complete

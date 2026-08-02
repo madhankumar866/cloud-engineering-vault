@@ -14,8 +14,10 @@ tags:
   - [domain-tag]
   - review
 status: [not-started | in-progress | completed]
+Repetition: rep/1
 ---
 ```
+- **Repetition Tracking (`Repetition:` property):** Every note must include a standalone `Repetition:` property in the frontmatter (`rep/1` through `rep/5` or `rep/mastered`) as a separate key-value pair—do NOT place it inside the `tags` array! This is required so that tracker base files and dashboards can view and filter study progress properly.
 
 ## 📝 Note Creation Rule
 **EVERY** new concept note must be created using the `Templates/Master Concept Template.md`. Do not start blank files for core concepts. This ensures Zettelkasten linking blocks, spaced repetition flashcards, and Kanban statuses are always present.

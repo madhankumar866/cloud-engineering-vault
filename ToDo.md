@@ -1,12 +1,7 @@
-- [x] collection Companies list in olympia, and update in notion to track ✅ 2026-07-30
-- [ ] corss verify the olympia company manually
-- [x] system design articles :
 
- - [ ] Write and publish LinkedIn post about Uber's Superuser Gateway pattern
+- [ ] Write and publish LinkedIn post about Uber's Superuser Gateway pattern
 - [ ] OOC revision
-- [x] update todo list with tasks plugin ✅ 2026-07-30
-- [x]  ✅ 2026-07-30
-- [x] Update Revision mac ✅ 2026-07-30
+
 
 
 

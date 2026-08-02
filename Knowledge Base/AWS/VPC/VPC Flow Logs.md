@@ -3,7 +3,8 @@ tags:
   - aws/networking
   - vpc
   - review
-status: completed
+status: not-started
+Repetition: rep/1
 ---
 # VPC Flow Logs
 
@@ -144,17 +145,19 @@ flowchart LR
 
 ### 🗂️ Flashcards
 
-#flashcards/aws
+#flashcards/aws/7_vpc-logs
 
 **What does VPC Flow Logs capture — and what does it NOT capture?**
 ?
 It captures metadata: source/destination IP, port, protocol, bytes, and whether traffic was ACCEPTED or REJECTED. It does NOT capture packet contents. It also excludes DNS resolver traffic, DHCP, EC2 metadata endpoint, KMS, and Time Sync traffic.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **At what 3 levels can VPC Flow Logs be enabled?**
 ?
 VPC level (all ENIs in the VPC), Subnet level (all ENIs in a subnet), and ENI level (one specific network interface).
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
@@ -163,15 +166,18 @@ VPC level (all ENIs in the VPC), Subnet level (all ENIs in a subnet), and ENI le
 - **CloudWatch Logs** — real-time alerting and metric filters.
 - **S3** — long-term storage with Athena SQL querying; most cost-effective.
 - **Kinesis Firehose** — streaming directly to a SIEM like Splunk or Datadog.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **A developer says EC2 can't connect to RDS. How would you use Flow Logs to diagnose this?**
 ?
 Enable flow logs on the RDS ENI or the subnet. Look for REJECT records with `dstport = 5432` (Postgres) or `3306` (MySQL). A REJECT tells you a Security Group or NACL is blocking the traffic — then trace which rule is responsible.
+<!--SR:!2026-08-03,3,250-->
 
 ---
 
 **Why would a flow log show REJECT even when a Security Group rule allows the traffic?**
 ?
 Because NACLs are also evaluated. A NACL DENY on the subnet will reject traffic before (or after) the Security Group is checked. Since NACLs are stateless, an outbound return flow can also be rejected if the ephemeral port range isn't explicitly allowed.
+<!--SR:!2026-08-03,3,250-->

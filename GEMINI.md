@@ -26,13 +26,14 @@ Frontmatter — exact shape, always:
 tags:
   - <topic tag from Tag Taxonomy>
   - review
-  - rep/1
 status: not-started | in-progress | completed
+Repetition: rep/1
 ---
 ```
 - `status` is a frontmatter property only — never write it as an inline `#status/...` tag.
 - Always include `review` as a tag (drives the spaced-repetition plugin).
-- Always include a repetition tracking tag (e.g., `rep/1`, `rep/2`, etc.) in the `tags` array. **CRITICAL:** When editing or reviewing notes, you MUST validate that a `rep/X` tag exists in the frontmatter. If it is missing, add `rep/1` by default.
+- Always include a standalone repetition tracking property (e.g., `Repetition: rep/1`, `Repetition: rep/2`, etc.) in the frontmatter. **CRITICAL:** When editing or reviewing notes, you MUST validate that a `Repetition: rep/X` property exists in the frontmatter as a separate key-value pair (do NOT place `rep/X` inside the `tags:` array, because tracker base files and Dataview dashboards rely on `Repetition` being an independent frontmatter field). If it is missing, add `Repetition: rep/1` by default.
+- **Spaced-Repetition Advancement Rule:** When an agent completes an interactive study review, quiz, or active recall session with the user on a topic note, the agent MUST proactively increment the standalone `Repetition:` property in the frontmatter (`rep/1` → `rep/2` → `rep/3` → `rep/4` → `rep/5` → `rep/mastered`) to reflect the completed study cycle. Always keep `Repetition:` as an independent frontmatter property, never inside the `tags` array.
 - Only use topic tags already listed in `Templates/Tag Taxonomy.md` (e.g. `aws/networking`, `aws/compute`, `kubernetes/eks`, `iac/terraform`, `agent-ai/mcp`, ...). If a note doesn't fit an existing tag, add the new tag to `Tag Taxonomy.md` first, then use it — don't invent one inline.
 
 Section order and headers — exact, don't reorder or rename:

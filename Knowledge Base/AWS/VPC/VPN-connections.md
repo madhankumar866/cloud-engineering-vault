@@ -3,7 +3,8 @@ tags:
   - aws/networking
   - vpc
   - review
-status: completed
+status: not-started
+Repetition: rep/1
 ---
 # VPN Connections
 

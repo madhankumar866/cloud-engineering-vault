@@ -4,7 +4,7 @@ tags:
   - vpc
   - review
 status: completed
-Repetition: rep/3
+Repetition: rep/4
 ---
 # Security Groups & NACLs
 
@@ -179,6 +179,18 @@ The device drops the packet and returns an ICMPv6 Packet Too Big (PTB) message.
 
 ---
 
+**If an EC2 instance's Security Group allows port 80, but the subnet NACL denies port 80, what happens to inbound HTTP traffic?**
+?
+The traffic is dropped immediately at the subnet boundary by the NACL before reaching the EC2 instance or its Security Group.
+
+---
+
+**To enable outbound HTTPS communication from an EC2 instance, what inbound rule is needed on its Security Group?**
+?
+No inbound rule is needed; Security Groups are stateful, so return traffic for outbound requests is automatically allowed.
+
+---
+
 #### Security Groups - Referencing & Quotas
 #flashcards/aws/6_security_group/limits
 
@@ -258,6 +270,12 @@ The address followed by the `/32` prefix length.
 
 ---
 
+**If a Customer-Managed Prefix List contains 5 active entries but was created with a maximum size of 20, how many rules does referencing it count against your Security Group quota?**
+?
+20 rules (it counts as the configured maximum size of the list, not the current number of items).
+
+---
+
 #### Security Groups - Cross-Account (RAM)
 #flashcards/aws/6_security_group/ram
 
@@ -324,6 +342,12 @@ No, participant accounts cannot share security groups.
 **What happens to participant EC2 instances if they attempt to launch using an ENI associated with an unshared security group?**
 ?
 They cannot be launched.
+
+---
+
+**What is the difference between "unsharing" and "deleting" a cross-account shared Security Group regarding participant instances?**
+?
+Unsharing allows existing participant instances to keep using the group and receiving rule updates (while blocking new attachments). Deleting is strictly prohibited until participants disassociate the group from all ENIs.
 
 ---
 
@@ -446,6 +470,18 @@ Network ACLs.
 
 ---
 
+**To enable outbound HTTPS communication from a private subnet, what rules must be configured on the subnet's custom NACL?**
+?
+Both an outbound ALLOW for port 443 AND an inbound ALLOW for ephemeral ports (1024–65535) to receive return responses from the external server.
+
+---
+
+**What is the difference in default traffic policy between a VPC's Default NACL and a newly created Custom NACL?**
+?
+The Default NACL allows all inbound and outbound traffic (Rule 100), whereas a newly created Custom NACL denies ALL inbound and outbound traffic by default until allow rules are manually added.
+
+---
+
 #### NACLs - Rules & Evaluation
 #flashcards/aws/6_nacls/rules
 
@@ -554,6 +590,12 @@ Time Exceeded, TTL expired in transit (Type 11, Code 0).
 ?
 Type 2.
 <!--SR:!2026-07-25,3,250-->
+
+---
+
+**If small network requests succeed but large data transfers silently freeze and time out across subnets, what is the most likely NACL misconfiguration?**
+?
+Path MTU Discovery (PMTUD) is failing because ICMP Type 3, Code 4 (Destination Unreachable: Fragmentation Needed) is blocked in the inbound NACL rules.
 
 ---
 
