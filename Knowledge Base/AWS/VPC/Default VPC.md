@@ -5,6 +5,7 @@ tags:
   - completed
 status: completed
 Repetition: rep/3
+Next-Review: 2026-07-15
 ---
 # Default VPC
 

@@ -2,8 +2,10 @@
 tags:
   - aws/networking
   - vpc
-  - review
+  - completed
 status: completed
+Repetition: rep/3
+Next-Review: 2026-07-15
 ---
 # NAT Gateway
 

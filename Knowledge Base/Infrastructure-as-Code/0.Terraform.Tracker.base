@@ -1,9 +1,9 @@
-name: VPC Tracker
+name: Terraform Tracker
 version: "1.1"
 filters:
   or:
-    - file.folder == "Knowledge Base/AWS"
-    - file.folder == "Knowledge Base/AWS/VPC"
+    - file.folder == "Knowledge Base/Infrastructure-as-Code"
+    - file.folder == "Knowledge Base/Infrastructure-as-Code/Terraform"
 formulas:
   Untitled: ""
 views:
@@ -18,7 +18,9 @@ views:
     sort:
       - property: status
         direction: DESC
-      - property: formula.Untitled
+      - property: Next-Review
+        direction: ASC
+      - property: Repetition
         direction: ASC
       - property: tag
         direction: ASC

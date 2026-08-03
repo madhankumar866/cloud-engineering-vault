@@ -28,12 +28,21 @@ tags:
   - review
 status: not-started | in-progress | completed
 Repetition: rep/1
+Next-Review: 
 ---
 ```
 - `status` is a frontmatter property only — never write it as an inline `#status/...` tag.
 - Always include `review` as a tag (drives the spaced-repetition plugin).
 - Always include a standalone repetition tracking property (e.g., `Repetition: rep/1`, `Repetition: rep/2`, etc.) in the frontmatter. **CRITICAL:** When editing or reviewing notes, you MUST validate that a `Repetition: rep/X` property exists in the frontmatter as a separate key-value pair (do NOT place `rep/X` inside the `tags:` array, because tracker base files and Dataview dashboards rely on `Repetition` being an independent frontmatter field). If it is missing, add `Repetition: rep/1` by default.
 - **Spaced-Repetition Advancement Rule:** When an agent completes an interactive study review, quiz, or active recall session with the user on a topic note, the agent MUST proactively increment the standalone `Repetition:` property in the frontmatter (`rep/1` → `rep/2` → `rep/3` → `rep/4` → `rep/5` → `rep/mastered`) to reflect the completed study cycle. Always keep `Repetition:` as an independent frontmatter property, never inside the `tags` array.
+- **Revision Schedule Tracking & Validation (`Next-Review:` property):** Alongside `Repetition:`, every concept note MUST maintain a companion `Next-Review:` date property in the frontmatter.
+  - **Incomplete Topics:** When a note is in `not-started` or `in-progress` status, `Next-Review:` must remain blank/empty (no date filled in).
+  - **Completion Validation Rule (CRITICAL):** Whenever a note is moved to `status: completed` (or whenever an agent interacts with a completed note), the agent MUST validate that `Next-Review: YYYY-MM-DD` is populated with a calculation based on the exact metadata date when the topic was moved to `completed`:
+    - `rep/1` or `rep/2`: Same day as completion date
+    - `rep/3`: +1 day from completion date (next day check)
+    - `rep/4`: +14 days from completion date (2-week check)
+    - `rep/5`: +60 days from completion date (2-month check)
+    - `rep/mastered`: Remove date or leave empty.
 - Only use topic tags already listed in `Templates/Tag Taxonomy.md` (e.g. `aws/networking`, `aws/compute`, `kubernetes/eks`, `iac/terraform`, `agent-ai/mcp`, ...). If a note doesn't fit an existing tag, add the new tag to `Tag Taxonomy.md` first, then use it — don't invent one inline.
 
 Section order and headers — exact, don't reorder or rename:

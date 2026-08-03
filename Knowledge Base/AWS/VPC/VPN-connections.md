@@ -6,6 +6,7 @@ tags:
   - completed
 status: completed
 Repetition: rep/2
+Next-Review: 2026-08-03
 ---
 # VPN Connections
 
