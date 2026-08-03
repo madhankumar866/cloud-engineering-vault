@@ -14,10 +14,10 @@
 
 ## 🔔 Topics Due for Review Today (Spaced Repetition Queue)
 ```dataview
-TABLE Repetition AS "Current Stage", Next-Review AS "Due Date"
+TABLE Repetition AS "Current Stage", row["Next-Review"] AS "Due Date"
 FROM "Knowledge Base"
-WHERE Next-Review <= date(today) AND status != "completed" AND Repetition != "rep/mastered"
-SORT Next-Review ASC
+WHERE row["Next-Review"] <= date(today) AND Repetition != "rep/mastered"
+SORT row["Next-Review"] ASC
 ```
 
 ---
