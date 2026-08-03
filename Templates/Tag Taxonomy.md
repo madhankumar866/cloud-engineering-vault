@@ -7,6 +7,10 @@ Used to group related concepts. Every note must have at least one topic tag.
 - `#aws/networking`
 - `#aws/compute`
 - `#aws/security`
+- `#kubernetes/core`
+- `#kubernetes/security`
+- `#kubernetes/networking`
+- `#kubernetes/storage`
 - `#kubernetes/eks`
 - `#kubernetes/gitops`
 - `#iac/terraform`

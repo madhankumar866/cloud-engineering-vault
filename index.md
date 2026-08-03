@@ -44,8 +44,17 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
   - [ ] [[AWS CDK CloudFormation]] & AWS SAM
 
 ## 🔵 3. Compute & Orchestration: Kubernetes & EKS
+- [ ] **Kubestronaut Knowledge Graph (Mastery Tracks)**
+  - [ ] [[0.1. Topics|Kubestronaut Master Curriculum & Checklist]] — complete 100+ topic breakdown & shared concept intersection matrix
+  - [ ] [[0.2. Labs|Kubernetes Hands-On Practice Labs]] — step-by-step practical deployment challenges with self-verification commands
+  - [ ] [[0.3. Links|Kubernetes Reference Bookmarks & Scanners]] — curated official CNCF exam links & security tools (Falco, Trivy, OPA)
+  - [ ] [[1. KCNA - Cloud Native Associate]] — foundational architecture, container scheduling, CNI & observability
+  - [ ] [[2. CKA - Kubernetes Administrator]] — control plane administration, etcd maintenance, kubeadm & advanced routing
+  - [ ] [[3. CKAD - Application Developer]] — multi-container design patterns (sidecars), probes, Helm & Kustomize overlays
+  - [ ] [[4. KCSA - Security Associate]] — 4Cs of Cloud Native Security, trust boundaries, threat modeling (STRIDE / MITRE)
+  - [ ] [[5. CKS - Security Specialist]] — kernel confinement (Seccomp/AppArmor), CIS benchmarking & eBPF runtime auditing
 - [ ] **EKS Fundamentals & Security**
-  - [ ] [[EKS Architecture]] (Control Plane vs Worker Nodes)
+  - [ ] [[6. EKS Architecture|EKS Architecture]] (Control Plane vs Worker Nodes)
   - [ ] EKS IAM Roles for Service Accounts (IRSA) & K8s RBAC
 - [ ] **Service Mesh & Networking**
   - [ ] Istio (mTLS, Zero-trust, Canary/Shadow deployments, farm-based routing) 

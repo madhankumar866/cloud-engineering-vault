@@ -1,0 +1,36 @@
+{
+	"nodes":[
+		{"id":"grp_shared","type":"group","x":-820,"y":580,"width":1400,"height":340,"color":"5","label":"🌐 Shared Knowledge Graph Intersections"},
+		{"id":"grp_plat","type":"group","x":-340,"y":-220,"width":440,"height":680,"color":"4","label":"⚙️ Core Administrator & Developer Tracks"},
+		{"id":"grp_assoc","type":"group","x":-980,"y":-220,"width":420,"height":680,"color":"6","label":"🏗️ Foundation & Associate Tracks"},
+		{"id":"grp_spec","type":"group","x":680,"y":-220,"width":420,"height":680,"color":"1","label":"🔒 Advanced Security Specialist Track"},
+		{"id":"grp_res","type":"group","x":-660,"y":1100,"width":1080,"height":240,"color":"3","label":"🧪 Study Dashboard & Hands-On Verification"},
+		{"id":"node_cka","type":"text","text":"### [[2. CKA - Kubernetes Administrator|CKA (Kubernetes Administrator)]]\n- Control Plane & etcd Maintenance\n- Kubeadm Cluster Upgrades & DR Snapshotting\n- Advanced Scheduling & Pod Probes\n- CoreDNS, CNI & Gateway API Traffic Routing","x":-320,"y":-180,"width":400,"height":260},
+		{"id":"node_ckad","type":"text","text":"### [[3. CKAD - Application Developer|CKAD (Application Developer)]]\n- Multi-Container Pod Design Patterns (Sidecars)\n- ConfigMaps, Secrets, Liveness & Readiness Probes\n- Helm Package Charting & Kustomize Overlays\n- Canary & Blue-Green Release Strategies","x":-320,"y":140,"width":400,"height":290},
+		{"id":"title","type":"text","text":"# 🚀 [[0.1. Topics|Kubestronaut Knowledge Graph]]\nInteractive roadmap connecting all 5 CNCF & Linux Foundation certification tracks. Mastering these foundational, administration, developer, and security domains elevates you to **Kubestronaut** status.","x":-420,"y":-520,"width":600,"height":140,"color":"6"},
+		{"id":"rep_legend","type":"text","text":"**1st Repetition:** Immediately after learning\n**2nd Repetition:** After 20–30 minutes\n**3rd Repetition:** After 1 day\n**4th Repetition:** After 2–3 weeks\n**5th Repetition:** After 2–3 months","x":0,"y":-740,"width":360,"height":160},
+		{"id":"legend","type":"text","text":"### 🎨 Status Colors & Legend\n- Default: To Learn\n- Yellow (Color 3): In Progress\n- Orange (Color 2): Review/Apply\n- Green (Color 4): Mastered","x":-540,"y":-740,"width":400,"height":160},
+		{"id":"node_kcsa","type":"text","text":"### [[4. KCSA - Security Associate|KCSA (Security Associate)]]\n- 4Cs of Cloud Native Security\n- Component & Pod Security Fundamentals\n- Threat Modeling (STRIDE & MITRE)\n- Falco, Trivy & Compliance Standards","x":-960,"y":160,"width":380,"height":270},
+		{"id":"node_kcna","type":"text","text":"### [[1. KCNA - Cloud Native Associate|KCNA (Cloud Native Associate)]]\n- Cloud Native Architecture & Containers\n- Kubernetes Resources & Scheduling\n- CNI & Service Mesh (Istio / Envoy)\n- Observability & GitOps (ArgoCD)","x":-960,"y":-180,"width":380,"height":220},
+		{"id":"node_cks","type":"text","text":"### [[5. CKS - Security Specialist|CKS (Security Specialist)]]\n*(Requires CKA Certification)*\n- CIS Benchmarking Auditing (`kube-bench`)\n- Seccomp, AppArmor & Syscall Confinement\n- Falco eBPF Runtime Threat Defense\n- OPA Gatekeeper & Distroless SBOM Supply Chain","x":700,"y":-180,"width":380,"height":305},
+		{"id":"node_prereq","type":"text","text":"> [!IMPORTANT] Prerequisite Gate\n> You must hold an active **CKA certification** before registering for or attempting the CKS practical exam.","x":700,"y":210,"width":380,"height":220,"color":"1"},
+		{"id":"s_netpol","type":"text","text":"### 🌐 Network Policies & CNI\n**Shared Across:** KCNA, CKA, CKAD, KCSA, CKS\nZero-trust microservice traffic rules and Container Networking Interfaces (Weave, Cilium).","x":-520,"y":630,"width":260,"height":250},
+		{"id":"s_rbac","type":"text","text":"### 🔐 RBAC & Service Accounts\n**Shared Across:** KCNA, CKA, CKAD, KCSA, CKS\nLeast-privilege API authentication and RoleBindings for containerized workloads.","x":-800,"y":630,"width":260,"height":250},
+		{"id":"s_gitops","type":"text","text":"### 📦 Helm, Kustomize & GitOps\n**Shared Across:** KCNA, CKA, CKAD\nDeclarative templating, environmental parameter overlays, and ArgoCD reconciliation.","x":-240,"y":630,"width":260,"height":250},
+		{"id":"s_istio","type":"text","text":"### 🕸️ Istio & Gateway API\n**Shared Across:** KCNA, CKA, KCSA\nService mesh sidecars, mTLS zero-trust encryption, and next-generation traffic routing.","x":40,"y":630,"width":260,"height":250},
+		{"id":"s_sec_runtime","type":"text","text":"### 🛡️ Falco, Trivy & OPA\n**Shared Across:** KCNA, KCSA, CKS\neBPF runtime threat auditing, static container image scanning, and admission controllers.","x":320,"y":630,"width":240,"height":250},
+		{"id":"node_topics","type":"text","text":"### 📋 [[0.1. Topics|Master Curriculum Index]]\nComprehensive 100+ topic checklist mapped across all 5 certification tracks with interactive study checkboxes.","x":-640,"y":1140,"width":320,"height":180,"color":"3"},
+		{"id":"node_labs","type":"text","text":"### 🧪 [[0.2. Labs|Hands-On Practice Labs]]\nSelf-guided practical deployment challenges (Kind, Kube-bench, Falco) with step-by-step verification commands.","x":-300,"y":1140,"width":340,"height":180,"color":"3"},
+		{"id":"node_links","type":"text","text":"### 🔗 [[0.3. Links|External Reference & Tools]]\nCurated bookmarks for KodeKloud Kubestronaut graph, CNCF exam repos, and Cloud Native security tools.","x":60,"y":1140,"width":340,"height":180,"color":"3"}
+	],
+	"edges":[
+		{"id":"e_kcna_cka","fromNode":"node_kcna","fromSide":"right","toNode":"node_cka","toSide":"left","color":"4","label":"scales to admin"},
+		{"id":"e_kcna_kcsa","fromNode":"node_kcna","fromSide":"bottom","toNode":"node_kcsa","toSide":"top","color":"6","label":"security focus"},
+		{"id":"e_cka_cks","fromNode":"node_cka","fromSide":"right","toNode":"node_cks","toSide":"left","color":"1","label":"REQUIRED PREREQ"},
+		{"id":"e_kcsa_cks","fromNode":"node_kcsa","fromSide":"right","toNode":"node_cks","toSide":"bottom","color":"1","label":"advanced runtime"},
+		{"id":"e_cka_ckad","fromNode":"node_cka","fromSide":"bottom","toNode":"node_ckad","toSide":"top","color":"4","label":"workload design"},
+		{"id":"e_title_plat","fromNode":"title","fromSide":"bottom","toNode":"grp_plat","toSide":"top","color":"6","label":"core progression"},
+		{"id":"e_plat_shared","fromNode":"grp_plat","fromSide":"bottom","toNode":"grp_shared","toSide":"top","color":"5","label":"shared concepts"},
+		{"id":"e_shared_res","fromNode":"grp_shared","fromSide":"bottom","toNode":"grp_res","toSide":"top","color":"3","label":"verify via labs"}
+	]
+}
