@@ -12,11 +12,11 @@
 
 ---
 
-## 🔔 Topics Due for Review Today (Spaced Repetition Queue)
+## 📅 Spaced Repetition Schedule (Active Review Dates)
 ```dataview
-TABLE Repetition AS "Current Stage", row["Next-Review"] AS "Due Date"
+TABLE Repetition AS "Current Stage", row["Next-Review"] AS "Review Date"
 FROM "Knowledge Base"
-WHERE row["Next-Review"] <= date(today) AND Repetition != "rep/mastered"
+WHERE row["Next-Review"] != null AND row["Next-Review"] != "" AND Repetition != "rep/mastered"
 SORT row["Next-Review"] ASC
 ```
 
