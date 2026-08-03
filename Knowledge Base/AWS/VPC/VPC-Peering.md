@@ -2,7 +2,7 @@
 tags:
   - aws/networking
   - vpc
-  - review
+  - completed
 status: completed
 Repetition: rep/3
 ---

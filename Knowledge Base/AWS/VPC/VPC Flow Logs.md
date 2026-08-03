@@ -3,8 +3,9 @@ tags:
   - aws/networking
   - vpc
   - review
-status: not-started
-Repetition: rep/1
+  - completed
+status: completed
+Repetition: rep/2
 ---
 # VPC Flow Logs
 

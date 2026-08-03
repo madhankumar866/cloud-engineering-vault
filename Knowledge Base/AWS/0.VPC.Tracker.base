@@ -23,8 +23,6 @@ views:
         direction: ASC
       - property: file.name
         direction: ASC
-      - property: status
-        direction: DESC
     columnSize:
       note.Repetition: 121
       note.tags: 465
