@@ -180,9 +180,9 @@ When the user triggers a weekly review (e.g., by asking for a `/weekly-review` o
 ```
 
 ### Success Checkpoints (Update as Complete)
-- [ ] Day 2: Explain ALB vs NLB + VPC Advanced Features
+- [x] Day 2: Explain ALB vs NLB + VPC Advanced Features ✅ 2026-08-05
 - [ ] Day 4: Lab 3 passes (private subnet + NAT GW works)
-- [ ] Day 6: Lab 4 passes (firewall rules enforced correctly)
+- [x] Day 6: Lab 4 passes (firewall rules enforced correctly) ✅ 2026-08-05
 - [ ] Day 10: Lab 5 capstone complete (3-tier architecture deployed)
 - [ ] Day 14: Open questions answered + capstone documented
 

@@ -1,4 +1,11 @@
+## Task Hub & Apple Sync Test (August 5)
+- [x] Test Task Hub list view & Apple Reminders integration 📅 2026-08-05 ⏰ 18:30 #agent-ai ✅ 2026-08-05
+- [x] Drag-and-drop reschedule test in Task Hub Calendar 🛫 2026-08-05 📅 2026-08-06 #aws/networking ✅ 2026-08-05
+- [x] Review Apple Calendar meetings alongside study schedule 📅 2026-08-05 ✅ 2026-08-05
 
+## August 6
+
+- [ ] Set up one-way sync from this todo file to Notion using the local sync script
 - [ ] Write and publish LinkedIn post about Uber's Superuser Gateway pattern
 - [ ] Complete [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] (Labs 1–5 Capstone)
 - [ ] Answer VPC Open Question: CIDR sizing & dynamic subnetting using Terraform `for_each` loops

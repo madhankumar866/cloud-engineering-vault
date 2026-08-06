@@ -15,6 +15,7 @@ views:
       - Next-Review
       - status
       - tags
+      - file.backlinks
     sort:
       - property: status
         direction: DESC
