@@ -33,7 +33,7 @@ A route table is a **list of rules (routes)**. When a packet leaves an EC2 insta
 | Destination | Target | Meaning |
 |---|---|---|
 | `10.0.0.0/16` | `local` | Stay inside the VPC — talk to any instance |
-| `0.0.0.0/0` | `igw-0a1b2c3d` | Everything else → go to internet via IGW |
+| `0.0.0.0/0` | `igw-xxxxxx` | Everything else → go to internet via IGW |
 
 **Example route table for a private subnet:**
 
