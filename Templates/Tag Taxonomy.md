@@ -21,6 +21,8 @@ Used to group related concepts. Every note must have at least one topic tag.
 - `#agent-ai/fundamentals`
 - `#agent-ai/langgraph`
 - `#agent-ai/mcp`
+- `#agent-ai/tools`
+- `#productivity/tools`
 - `#system-design`
 
 ## 2. Review Tag (Spaced Repetition)
@@ -33,6 +35,7 @@ Domain-namespaced for spaced repetition:
 - `#flashcards/kubernetes`
 - `#flashcards/cicd`
 - `#flashcards/agent-ai`
+- `#flashcards/productivity`
 
 ## 4. Status Property (Frontmatter Only)
 Used strictly as a YAML property `status:`, not as an inline tag. Valid values:

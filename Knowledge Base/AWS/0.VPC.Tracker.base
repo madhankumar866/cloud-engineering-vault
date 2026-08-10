@@ -17,6 +17,8 @@ views:
       - tags
       - file.backlinks
     sort:
+      - property: Repetition
+        direction: ASC    
       - property: status
         direction: DESC
       - property: formula.Untitled

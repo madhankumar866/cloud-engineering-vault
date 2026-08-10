@@ -1,0 +1,88 @@
+{
+	"nodes": [
+		{
+			"id": "legend",
+			"type": "text",
+			"text": "### Status Legend\n- **Default (No Color)**: To Learn\n- **Yellow (3)**: In Progress\n- **Orange (2)**: Review/Apply\n- **Green (4)**: Mastered",
+			"x": -100,
+			"y": -400,
+			"width": 350,
+			"height": 180
+		},
+		{
+			"id": "group_prod",
+			"type": "group",
+			"label": "⚡ Productivity Tools",
+			"x": -450,
+			"y": -150,
+			"width": 320,
+			"height": 350,
+			"color": "6"
+		},
+		{
+			"id": "node_inbox",
+			"type": "text",
+			"text": "### [[2. Inbox Zero|Inbox Zero]]\nSuperhuman Alternative",
+			"x": -400,
+			"y": -100,
+			"width": 220,
+			"height": 100
+		},
+		{
+			"id": "node_harper",
+			"type": "text",
+			"text": "### [[3. Harper|Harper]]\nRust Grammar Linter",
+			"x": -400,
+			"y": 50,
+			"width": 220,
+			"height": 100
+		},
+		{
+			"id": "group_ai",
+			"type": "group",
+			"label": "🤖 Agentic & AI Tools",
+			"x": -50,
+			"y": -150,
+			"width": 640,
+			"height": 350,
+			"color": "6"
+		},
+		{
+			"id": "node_notebook",
+			"type": "text",
+			"text": "### [[3. Open Notebook|Open Notebook]]\nDocument Chat (SurrealDB)",
+			"x": 0,
+			"y": -100,
+			"width": 240,
+			"height": 100
+		},
+		{
+			"id": "node_activepieces",
+			"type": "text",
+			"text": "### [[4. Activepieces|Activepieces]]\nZapier Alt (MCP Support)",
+			"x": 300,
+			"y": -100,
+			"width": 240,
+			"height": 100
+		},
+		{
+			"id": "node_dyad",
+			"type": "text",
+			"text": "### [[5. Dyad|Dyad]]\nPrompt-to-App Gen",
+			"x": 0,
+			"y": 100,
+			"width": 240,
+			"height": 100
+		},
+		{
+			"id": "node_html",
+			"type": "text",
+			"text": "### [[6. HTML Anything|HTML Anything]]\nLayout Gen (Canva Alt)",
+			"x": 300,
+			"y": 100,
+			"width": 240,
+			"height": 100
+		}
+	],
+	"edges": []
+}
