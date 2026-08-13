@@ -5,7 +5,6 @@
 
 ## August 6
 
-- [ ] Set up one-way sync from this todo file to Notion using the local sync script
 - [ ] Write and publish LinkedIn post about Uber's Superuser Gateway pattern
 - [ ] Complete [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] (Labs 1–5 Capstone)
 - [ ] Answer VPC Open Question: CIDR sizing & dynamic subnetting using Terraform `for_each` loops
