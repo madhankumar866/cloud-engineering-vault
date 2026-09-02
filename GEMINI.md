@@ -137,63 +137,51 @@ When the user triggers a weekly review (e.g., by asking for a `/weekly-review` o
 
 ---
 
-## VPC Mastery Learning Path (July 21 – August 4, 2026)
+## Project Validation Standards (The "Senior" Bar)
+When evaluating the user's work, labs, or projects in this Vault, if they don't hit these marks, they are "Busy Work":
+- **Infrastructure:** Must be GitOps-driven (Crossplane/Argo) with Policy-as-Code (Kyverno). (For Terraform labs, must use modules, `for_each`, and proper remote state).
+- **Automation:** Must include **Golang** (e.g., Custom K8s Controllers or CLI tools) where applicable.
+- **Impact:** Must have a **FinOps** or **Observability** angle (quantifiable savings, cost estimates, or MTTD reduction).
 
-**Goal:** Master VPC architecture end-to-end — from fundamentals to production Terraform infrastructure.
+## Evaluation Output Requirements
+When asked to evaluate or review a project/lab, use this exact format with brutally honest, high-signal feedback:
+A. **Brutal Assessment**: Current level (Mid/Early Senior/Strong Senior) and what is holding them back.
+B. **Gap Analysis (Top 5)**: Specific missing skills.
+C. **Next 7-Day Action Plan**: Exact tasks.
+D. **Next 30-Day Plan**: Achievement milestones.
+E. **Priority Focus**: What to focus on vs. what to ignore.
+F. **Risk Warning**: 1-year projection if current path continues.
 
-**Active Tracker:** `Inbox/VPC-Learning-Tracker.md` (14-day daily log with hourly breakdown)
-**Visual Progress:** `Knowledge Base/AWS/0.VPC.Index.canvas` (learning map with phase tracking)
+---
 
-### Learning Phases
+## 🔴 UNIFIED SEQUENCE: The Senior Sprint (Active)
+> **OVERRIDE NOTICE:** The previous "VPC Mastery" foundational path has been deprecated in favor of the 60-Day Senior Platform Engineer Crunch. Basic theory is now considered "Busy Work."
 
-**Phase 1: Close Knowledge Gaps (Days 1–2)** — ~6 hours
-- Finish ALB vs NLB review ([3.ALB vs NLB.md](Knowledge%20Base/AWS/3.ALB%20vs%20NLB.md))
-- Complete VPC Advanced Features ([4. VPC Advanced Features.md](Knowledge%20Base/AWS/4.%20VPC%20Advanced%20Features.md))
-- Answer 2–3 priority open questions from canvas
-- **Success:** Can explain ALB vs NLB + VPC advanced concepts
+**Goal:** Prove Terraform mastery via the 3-Tier Capstone, then immediately pivot to `08_career_tracker` to build the `finops-operator` Golang controller.
 
-**Phase 2: Hands-On Labs — Terraform (Days 3–10)** — ~16.5 hours
-1. **Lab 3: NAT Gateway** (Days 3–4) — Build private subnet + outbound internet
-   - Reference: [NAT Gateway.md](Knowledge%20Base/AWS/VPC/NAT%20Gateway.md), [VPC-Terraform-Labs.md](Knowledge%20Base/AWS/VPC/VPC-Terraform-Labs.md)
-   - Verify: Private EC2 can reach internet; can't be reached from public
-2. **Lab 4: Security Groups + NACLs** (Days 5–6) — Multi-layer firewall rules
-   - Reference: [Security-group & NACLS.md](Knowledge%20Base/AWS/VPC/Security-group%20&%20NACLS.md), [VPC Flow Logs.md](Knowledge%20Base/AWS/VPC/VPC%20Flow%20Logs.md)
-   - Verify: Correct inbound/outbound rules enforced; logs show traffic patterns
-3. **Lab 5: 3-Tier Capstone** (Days 7–10) — Production-grade architecture
+**Active Tracker:** `ToDo.md` (Senior Sprint Section)
+
+### Sprint Phases
+
+**Phase 1: Terraform IaC Mastery (Immediate Priority)**
+- **Action:** Complete **Labs 1-4** to build foundational muscle memory.
+- **Action:** Complete **Lab 5: 3-Tier Capstone** (Production-grade architecture).
    - Design: Web tier (public) → App tier (private) → DB tier (isolated)
    - Build: Terraform modules for VPC, subnets, gateways, security
-   - Test: Full 3-tier connectivity; document architecture
    - Verify: All tiers communicate securely; traffic follows rules
+- **Success:** Terraform state is managed correctly, and the 3-tier architecture deploys successfully.
 
-**Phase 3: Deep Dives & Integration (Days 11–14)** — ~7–10 hours
-- Answer remaining open questions (CIDR sizing, cost, cross-account, NACL rules, TGW integration)
-- Optional: Transit Gateway deep dive (expand Lab 5 to multi-VPC)
-- Optional: Pending topics (GWLB, Traffic Mirroring, ENI, IPAM, Network Firewall)
-- Capstone review + documentation
-
-### Daily Study Template
-```
-🕐 Morning (30 min): Review progress, preview today's concept/lab
-📚 Learn (1–2 hrs): Read guide, take notes
-🔨 Build (1–2 hrs): Write Terraform, deploy & test
-✅ Reflect (30 min): Document findings, flag blockers, update tracker
-```
+**Phase 2: The Vault Handoff**
+- **Action:** Once Lab 5 is complete, **CLOSE THIS VAULT**.
+- **Action:** Open the `08_career_tracker` vault and begin work on the `finops-operator` Reconcile loop.
+- **Why:** Your competitive edge for the interview is Kubernetes Systems Engineering (Go), not further AWS provisioning theory.
 
 ### Success Checkpoints (Update as Complete)
 - [x] Day 2: Explain ALB vs NLB + VPC Advanced Features ✅ 2026-08-05
-- [ ] Day 4: Lab 3 passes (private subnet + NAT GW works)
 - [x] Day 6: Lab 4 passes (firewall rules enforced correctly) ✅ 2026-08-05
-- [ ] Day 10: Lab 5 capstone complete (3-tier architecture deployed)
-- [ ] Day 14: Open questions answered + capstone documented
+- [ ] **BLOCKER:** Lab 5 capstone complete (3-tier architecture deployed)
+- [ ] **HANDOFF:** Vault closed, transitioned to `finops-operator`
 
 ### Tracking Rules
-1. **Canvas Daily:** Move completed items right in Status section; update phase progress
-2. **Lab Checklist:** Mark ✅/🟡/🔴 as you progress through labs
-3. **Open Questions:** Cross off as answered during/after labs
-4. **Git Commits:** After each lab milestone, commit Terraform code with lab phase in message
-
-### If Blocked
-- **Terraform error:** Check Lab notes for common issues + AWS Console
-- **Concept unclear:** Re-read guide + search canvas for related notes
-- **Lab won't deploy:** Use VPC Flow Logs + AWS Console to debug
-- **Time short:** Skip optional topics; focus on Labs 3–5 capstone only
+1. **Focus:** Only work on Lab 5. Ignore Transit Gateway, IPAM, and other advanced VPC topics until the job offer is secured.
+2. **Git Commits:** Commit your Terraform capstone code as proof of work.

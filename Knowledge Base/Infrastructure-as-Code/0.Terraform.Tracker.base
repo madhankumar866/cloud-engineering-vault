@@ -1,4 +1,4 @@
-name: Terraform Tracker
+`name: Terraform Tracker
 version: "1.1"
 filters:
   or:
@@ -15,12 +15,13 @@ views:
       - Next-Review
       - status
       - tags
+      - file.backlinks
     sort:
+      - property: Repetition
+        direction: ASC    
       - property: status
         direction: DESC
-      - property: Next-Review
-        direction: ASC
-      - property: Repetition
+      - property: formula.Untitled
         direction: ASC
       - property: tag
         direction: ASC

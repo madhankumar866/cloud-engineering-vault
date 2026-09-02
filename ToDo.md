@@ -3,13 +3,18 @@
 - [x] Drag-and-drop reschedule test in Task Hub Calendar 🛫 2026-08-05 📅 2026-08-06 #aws/networking ✅ 2026-08-05
 - [x] Review Apple Calendar meetings alongside study schedule 📅 2026-08-05 ✅ 2026-08-05
 
-## August 6
+## 🔴 IMMEDIATE PRIORITY: The Senior Sprint (Aligned with Career Tracker)
+> **Goal:** Prove Terraform mastery to satisfy the 30L+ Platform Engineer requirement. Stop all basic VPC theory and skip to the capstone. Once this section is done, close this Vault and switch to the `08_career_tracker` Vault.
 
+- [ ] Complete [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] (Labs 1–4) to build foundational muscle memory.
+- [ ] **Lab 5 Capstone:** Build the 3-Tier VPC Architecture using Terraform modules (`for_each` loops, proper state).
+    - [ ] **AI Pair Programming Sprint:** Build the Capstone iteratively with AI, learning Terraform basics (HCL, State, Modules, Loops) Just-In-Time as we write the code.
+- [ ] Answer VPC Open Question: CIDR sizing & dynamic subnetting using Terraform `for_each` loops.
+- [ ] Answer VPC Open Question: Cross-account VPC peering automation with Terraform.
+
+## 🟡 DEPRIORITIZED (Post-Interview / Busy Work)
 - [ ] Write and publish LinkedIn post about Uber's Superuser Gateway pattern
-- [ ] Complete [[VPC/VPC-Terraform-Labs|VPC Terraform Labs]] (Labs 1–5 Capstone)
-- [ ] Answer VPC Open Question: CIDR sizing & dynamic subnetting using Terraform `for_each` loops
 - [ ] Answer VPC Open Question: NAT Gateway vs. NAT Instance cost breakeven analysis (FinOps evaluation)
-- [ ] Answer VPC Open Question: Cross-account VPC peering automation with Terraform
 - [ ] Answer VPC Open Question: NACL rule numbering spacing & governance best practices
 - [ ] Answer VPC Open Question: Transit Gateway integration with modular multi-VPC Terraform deployments
 - [ ] Explore pending VPC deep dives: VPC IPAM, Elastic Network Interfaces (ENIs) attachment behavior, and AWS Network Firewall
