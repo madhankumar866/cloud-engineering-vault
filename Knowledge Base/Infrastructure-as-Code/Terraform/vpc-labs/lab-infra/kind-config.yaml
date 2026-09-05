@@ -1,0 +1,13 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: vpc-labs
+nodes:
+  # Control-plane node exposing port 4566 on the host
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 31566
+        hostPort: 4566
+        listenAddress: "127.0.0.1"
+        protocol: TCP
+  # Worker node for realistic multi-node Kubernetes cluster operations
+  - role: worker

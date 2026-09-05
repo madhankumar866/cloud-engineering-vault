@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(gh --version)",
+      "Bash(graphify *)",
+      "Bash(git clone *)",
+      "Bash(git *)",
+      "Bash(python3 *)",
+      "Bash(uv *)"
+    ]
+  }
+}

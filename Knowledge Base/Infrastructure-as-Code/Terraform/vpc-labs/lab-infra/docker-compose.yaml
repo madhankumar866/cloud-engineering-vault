@@ -1,0 +1,14 @@
+services:
+  ministack:
+    image: ministackorg/ministack:latest
+    container_name: ministack-vpc-labs
+    ports:
+      - "4566:4566"
+      - "2222:2222"
+    environment:
+      - GATEWAY_PORT=4566
+      - LOG_LEVEL=INFO
+      - USE_SSL=0
+      - AWS_DEFAULT_REGION=ap-south-1
+      - DEFAULT_REGION=ap-south-1
+    restart: unless-stopped
