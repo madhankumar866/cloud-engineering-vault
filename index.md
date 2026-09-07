@@ -71,7 +71,8 @@ This plan is built to cover comprehensive AWS architecture, networking, EKS, and
   - [ ] [[ArgoCD]] (AppSets, Multi-tenant RBAC, Sync phases)
   - [ ] [[Argo Workflows]] (Release Orchestration)
 - [ ] **Pipeline Automation**
-  - [ ] [[GitHub Actions]]
+  - [ ] [[1. GitHub Actions|GitHub Actions]] — Hub note, workflow engine, AWS OIDC federation, container CI & ARC on EKS
+  - [ ] [[GitHub Actions Todo|GitHub Actions Hands-on Labs & Roadmap]] — progressive practical implementation challenges
   - [ ] [[Jenkins]] (Caching, stashing, parallelism)
 
 ## 🟠 5. Observability, FinOps & Security

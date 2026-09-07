@@ -1,0 +1,35 @@
+name: GitHub Actions Tracker
+version: "1.1"
+filters:
+  or:
+    - file.folder == "Knowledge Base/CI-CD"
+    - file.folder == "Knowledge Base/CI-CD/GitHub-Actions"
+formulas:
+  Untitled: ""
+views:
+  - type: table
+    name: Data Table
+    order:
+      - file.name
+      - Repetition
+      - Next-Review
+      - status
+      - tags
+      - file.backlinks
+    sort:
+      - property: Repetition
+        direction: ASC
+      - property: status
+        direction: DESC
+      - property: formula.Untitled
+        direction: ASC
+      - property: tag
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      note.Repetition: 121
+      note.Next-Review: 130
+      note.tags: 465
+  - type: cards
+    name: Cards View
